@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Catatan Editor</title>
+<style>
+  body { font-family: Georgia, 'Times New Roman', serif; background: #f6f4ee; color: #1c2321; margin: 0; padding: 24px 16px 48px; }
+  .kartu { max-width: 680px; margin: 0 auto; background: #ffffff; border: 1px solid #ddd6c4; border-radius: 12px; padding: 28px 24px; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+  .label { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #8a6d1d; font-weight: bold; margin: 0 0 6px; }
+  h1 { font-size: 22px; margin: 0 0 4px; line-height: 1.35; }
+  .penulis { color: #555; font-size: 15px; margin: 0 0 18px; }
+  .isi { font-size: 17px; line-height: 1.65; white-space: pre-wrap; }
+  .pesan { font-size: 17px; line-height: 1.6; text-align: center; color: #444; padding: 24px 0; }
+  .kaki { margin-top: 26px; padding-top: 14px; border-top: 1px solid #eee5cf; font-size: 13.5px; color: #777; line-height: 1.55; }
+</style>
+</head>
+<body>
+<main class="kartu" id="kartu">
+  <p class="pesan" id="status">Memuat catatan…</p>
+</main>
+<script>
+(function () {
+  var SUPABASE = "https://ymxijorgoucpsxgcvtgu.supabase.co";
+  var KUNCI = "sb_publishable_8Y6NE0t_5z4Jo2u3G50bbQ_e1qTTOB-";
+  var kartu = document.getElementById("kartu");
+  function tampil(html) { kartu.innerHTML = html; }
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  var token = new URLSearchParams(location.search).get("k");
+  if (!token) {
+    tampil('<p class="pesan">Tautan tidak lengkap. Pakai tautan atau kode QR yang kamu terima dari pengumuman resmi.</p>');
+    return;
+  }
+  var headers = { "apikey": KUNCI, "Authorization": "Bearer " + KUNCI };
+  fetch(SUPABASE + "/rest/v1/catatan_editor?token=eq." + encodeURIComponent(token) + "&select=penulis,judul,komentar,hangus", { headers: headers })
+    .then(function (r) { return r.json(); })
+    .then(function (rows) {
+      if (!rows || !rows.length) {
+        tampil('<p class="pesan">Catatan tidak ditemukan, atau masa tayangnya sudah selesai dan catatan ini sudah hangus.</p>');
+        return;
+      }
+      var c = rows[0];
+      if (c.hangus) {
+        tampil('<p class="pesan">Catatan ini sudah hangus. Masa koreksi untuk tulisan ini sudah ditutup.</p>');
+        return;
+      }
+      tampil(
+        '<p class="label">Catatan Editor</p>' +
+        '<h1>' + esc(c.judul) + '</h1>' +
+        '<p class="penulis">Penulis: ' + esc(c.penulis) + '</p>' +
+        '<div class="isi">' + esc(c.komentar) + '</div>' +
+        '<p class="kaki">Catatan ini hanya untukmu. Kerjakan koreksinya, kumpulkan ulang berkas perbaikanmu, lalu kabari lewat tombol Balas Catatan pada halaman pengumuman. Halaman ini akan hangus sesudah masa koreksi selesai.</p>'
+      );
+      fetch(SUPABASE + "/rest/v1/catatan_akses", {
+        method: "POST",
+        headers: Object.assign({ "Content-Type": "application/json", "Prefer": "return=minimal" }, headers),
+        body: JSON.stringify({ token: token })
+      }).catch(function () {});
+    })
+    .catch(function () {
+      tampil('<p class="pesan">Gangguan sambungan. Coba buka lagi tautan ini sebentar lagi.</p>');
+    });
+})();
+</script>
+</body>
+</html>
