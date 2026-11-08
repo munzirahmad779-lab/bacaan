@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Laman Mahasantri — Ma'had Aly DDI Mangkoso</title>
+<meta name="theme-color" content="#0b4a25">
+<style>
+  :root {
+    --hijau-tua: #0b4a25; --hijau: #064e3b; --hijau-gelap: #032e22;
+    --krem: #f4e8c1; --krem-muda: #faf6ea; --garis: #ddd6c4;
+    --teks: #1c2321; --teks-redup: #5a6660; --merah: #9c2b2b; --emas: #8a6d1d;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif; background: var(--krem-muda); color: var(--teks); }
+  /* ===== Header meniru web utama Ma'had Aly ===== */
+  .situs-header { background: linear-gradient(135deg, var(--hijau-gelap) 0%, var(--hijau-tua) 55%, var(--hijau) 100%); color: #fff; border-bottom: 4px solid var(--krem); }
+  .situs-header .dalam { max-width: 1080px; margin: 0 auto; padding: 14px 16px 10px; display: flex; align-items: center; gap: 14px; }
+  .situs-header img.logo { width: 56px; height: 56px; object-fit: contain; background: #fff; border-radius: 50%; padding: 3px; flex: none; }
+  .situs-header .nama { line-height: 1.15; }
+  .situs-header .nama .besar { font-size: 21px; font-weight: 800; letter-spacing: .01em; }
+  .situs-header .nama .kecil { font-size: 12.5px; color: var(--krem); letter-spacing: .06em; text-transform: uppercase; margin-top: 3px; }
+  .situs-nav { max-width: 1080px; margin: 0 auto; padding: 0 16px 12px; display: flex; flex-wrap: wrap; gap: 4px 18px; }
+  .situs-nav a { color: #e9f2ec; text-decoration: none; font-size: 14.5px; font-weight: 600; padding: 4px 2px; }
+  .situs-nav a:hover { color: var(--krem); text-decoration: underline; }
+  .situs-nav a.aktif { color: var(--krem); border-bottom: 2px solid var(--krem); }
+  /* ===== Isi ===== */
+  main { max-width: 760px; margin: 0 auto; padding: 22px 16px 56px; }
+  .kartu { background: #fff; border: 1px solid var(--garis); border-radius: 14px; padding: 24px 22px; box-shadow: 0 2px 10px rgba(3,46,34,.06); margin-bottom: 18px; }
+  .label { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--emas); font-weight: 700; margin: 0 0 8px; }
+  h1 { font-size: 25px; margin: 0 0 6px; line-height: 1.3; }
+  h2 { font-size: 19px; margin: 0 0 8px; line-height: 1.35; }
+  p { line-height: 1.6; }
+  .redup { color: var(--teks-redup); font-size: 14.5px; }
+  .sanah-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+  .sanah-btn { border: 2px solid var(--hijau-tua); background: #fff; color: var(--hijau-tua); border-radius: 12px; padding: 16px 12px; font-size: 18px; font-weight: 800; cursor: pointer; text-align: center; }
+  .sanah-btn small { display: block; font-size: 12.5px; font-weight: 600; color: var(--teks-redup); margin-top: 4px; }
+  .sanah-btn:hover { background: var(--hijau-tua); color: #fff; }
+  .sanah-btn:hover small { color: var(--krem); }
+  .cari { width: 100%; font-size: 16px; padding: 12px 14px; border: 1.5px solid var(--garis); border-radius: 10px; margin: 6px 0 12px; }
+  .nama-item { display: block; width: 100%; text-align: left; background: #fff; border: 1px solid var(--garis); border-radius: 10px; padding: 13px 15px; margin-bottom: 9px; cursor: pointer; }
+  .nama-item:hover { border-color: var(--hijau-tua); }
+  .nama-item .nm { font-size: 16.5px; font-weight: 700; }
+  .nama-item .jd { font-size: 13px; color: var(--teks-redup); margin-top: 2px; line-height: 1.45; }
+  .chip { display: inline-block; font-size: 11.5px; font-weight: 700; letter-spacing: .04em; padding: 2.5px 9px; border-radius: 999px; vertical-align: 2px; margin-left: 8px; }
+  .chip.terbit { background: #e2f2e6; color: var(--hijau-tua); }
+  .chip.wajib-jawab { background: #fdeeda; color: #8a5a00; }
+  .chip.ditolak { background: #fbe7e7; color: var(--merah); }
+  .chip.selesai { background: #e8e8e8; color: #444; }
+  .chip.belum-mengirim { background: #e8e8e8; color: #444; }
+  .tombol { display: block; width: 100%; text-align: center; background: var(--hijau-tua); color: #fff; text-decoration: none; border: none; font-size: 16px; font-weight: 700; padding: 13px 16px; border-radius: 10px; margin-top: 10px; cursor: pointer; }
+  .tombol.sekunder { background: #fff; color: var(--hijau-tua); border: 2px solid var(--hijau-tua); }
+  .tombol:disabled { opacity: .55; cursor: default; }
+  .baris-tombol { display: flex; gap: 10px; flex-wrap: wrap; }
+  .baris-tombol .tombol { flex: 1 1 150px; }
+  .qr-kotak { text-align: center; padding: 8px 0 2px; }
+  .qr-kotak svg { width: 220px; height: 220px; max-width: 70vw; }
+  .qr-tautan { font-size: 13px; color: var(--teks-redup); word-break: break-all; text-align: center; margin-top: 6px; }
+  .isi-catatan { font-size: 16.5px; line-height: 1.65; white-space: pre-wrap; background: var(--krem-muda); border: 1px solid var(--garis); border-radius: 10px; padding: 16px; }
+  .status-besar { font-size: 17px; line-height: 1.55; }
+  .balik { background: none; border: none; color: var(--hijau-tua); font-weight: 700; font-size: 15px; cursor: pointer; padding: 6px 0; }
+  footer { max-width: 760px; margin: 0 auto; padding: 0 16px 40px; color: var(--teks-redup); font-size: 13.5px; line-height: 1.6; text-align: center; }
+  footer a { color: var(--hijau-tua); }
+  .sembunyi { display: none !important; }
+</style>
+</head>
+<body>
+
+<header class="situs-header">
+  <div class="dalam">
+    <img class="logo" src="logo-mahadaly.png" alt="Logo Ma'had Aly DDI Mangkoso">
+    <div class="nama">
+      <div class="besar">Ma'had Aly DDI Mangkoso</div>
+      <div class="kecil">Pendidikan Tinggi Kader Ulama</div>
+    </div>
+  </div>
+  <nav class="situs-nav">
+    <a href="https://mahadaly-ddimangkoso.my.id/">Beranda</a>
+    <a href="https://mahadaly-ddimangkoso.my.id/profil">Profil</a>
+    <a href="https://mahadaly-ddimangkoso.my.id/akademik">Akademik</a>
+    <a href="https://mahadaly-ddimangkoso.my.id/pengajian">Pengajian</a>
+    <a href="https://mahadaly-ddimangkoso.my.id/berita">Berita</a>
+    <a href="https://mahadaly-ddimangkoso.my.id/artikel">Artikel</a>
+    <a href="#" class="aktif">Laman Mahasantri</a>
+  </nav>
+</header>
+
+<main>
+  <!-- ===== Tampilan pilih ===== -->
+  <section id="v-pilih">
+    <div class="kartu">
+      <p class="label">Laman Mahasantri</p>
+      <h1>Selamat datang, Mahasantri</h1>
+      <p class="status-besar">Halaman ini laman pribadimu di web Ma'had Aly DDI Mangkoso. Di sini ada kode QR tulisanmu untuk dibagikan ke story, dan laman revisi untuk memeriksa catatan editor atas tulisanmu.</p>
+      <p class="redup">Pilih dulu sanahmu, lalu pilih namamu.</p>
+      <div class="sanah-grid" id="sanah-grid"></div>
+    </div>
+    <div class="kartu sembunyi" id="kartu-nama">
+      <button class="balik" id="btn-ganti-sanah">&larr; Ganti sanah</button>
+      <h2 id="judul-sanah">Pilih namamu</h2>
+      <input class="cari" id="cari-nama" type="search" placeholder="Ketik namamu untuk mencari cepat">
+      <div id="daftar-nama"></div>
+    </div>
+  </section>
+
+  <!-- ===== Tampilan dashboard ===== -->
+  <section id="v-dash" class="sembunyi">
+    <div class="kartu">
+      <button class="balik" id="btn-ganti-nama">&larr; Bukan saya, ganti nama</button>
+      <p class="label">Dashboard Mahasantri</p>
+      <h1 id="d-nama">Nama</h1>
+      <p class="redup" id="d-sanah">Sanah</p>
+      <p class="status-besar" id="d-status"></p>
+    </div>
+
+    <div class="kartu" id="kartu-qr">
+      <p class="label">Kode QR</p>
+      <h2 id="qr-judul">QR Code Tulisan Saya</h2>
+      <p class="redup" id="qr-ket"></p>
+      <div class="qr-kotak" id="qr-utama"></div>
+      <p class="qr-tautan" id="qr-url"></p>
+      <div id="qr-kedua-wrap" class="sembunyi">
+        <h2 style="margin-top:22px">Tulisan Kedua</h2>
+        <div class="qr-kotak" id="qr-kedua"></div>
+        <p class="qr-tautan" id="qr-url2"></p>
+      </div>
+      <button class="tombol" id="btn-template">Unduh Template Story</button>
+      <div class="baris-tombol">
+        <button class="tombol sekunder" id="btn-bagikan">Bagikan Tautan</button>
+        <button class="tombol sekunder" id="btn-salin">Salin Tautan</button>
+      </div>
+      <p class="redup">Template story berukuran 1080 x 1920, siap dipasang di story WhatsApp, Instagram, Facebook, dan Threads. Unduh gambarnya, lalu unggah ke story masing-masing.</p>
+    </div>
+
+    <div class="kartu" id="kartu-revisi">
+      <p class="label">Laman Revisi</p>
+      <h2>Catatan Editor untuk Saya</h2>
+      <div id="revisi-isi"><p class="redup">Memeriksa catatan terbarumu...</p></div>
+    </div>
+
+    <div class="kartu">
+      <p class="label">Notifikasi</p>
+      <h2>Beri Tahu Saya Bila Ada Revisi</h2>
+      <p class="redup" id="notif-status">Aktifkan agar halaman ini memberitahumu bila ada catatan editor baru atau catatanmu berubah. Pemeriksaan berjalan selama halaman ini terbuka di perambanmu, jadi tambahkan halaman ini ke layar utama ponselmu dan bukalah secara berkala.</p>
+      <button class="tombol sekunder tombol" id="btn-notif">Aktifkan Notifikasi</button>
+      <button class="tombol sekunder tombol sembunyi" id="btn-cek">Periksa Catatan Sekarang</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Laman cabang resmi <a href="https://mahadaly-ddimangkoso.my.id/">Ma'had Aly DDI Mangkoso</a>.<br>
+  Tautan halaman ini bersifat pribadi. Simpan dan jangan bagikan tautan dashboardmu ke orang lain; yang kamu bagikan adalah kode QR tulisanmu.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+<script>
+(function () {
+  "use strict";
+  var DATA = [{"n": 1, "nama": "Faridwajedy", "sanah": "Ula", "judul": "Makna Iman menurut Imam Abu Hasan Al-Asy'ari dan Relevansinya dalam Kehidupan Muslim", "status": "wajib-jawab", "token": "37wzwkcqjunv"}, {"n": 2, "nama": "Muhammad Fajrul Amin", "sanah": "Ula", "judul": "Shalawat kepada Nabi Muhammad SAW: Makna, Keutamaan, dan Implementasinya dalam Kehidupan Umat Islam", "status": "wajib-jawab", "token": "7xcz38nh3teh"}, {"n": 3, "nama": "Maulidiyyah", "sanah": "Ula", "judul": "Urgensi Salat Subuh Berjamaah dan Manfaatnya: Titik Temu Habluminallah wa Habluminannas", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/urgensi-salat-subuh-berjamaah-dan-manfaatnya-titik-temu-habluminallah-3", "token": "sy96e8ak2syp"}, {"n": 4, "nama": "Muh. Muazzinul Fajri", "sanah": "Ula", "judul": "Ilmu Faraid: Pengertian, Dasar Hukum, dan Pentingnya Mempelajarinya dalam Islam", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/ilmu-faraid-pengertian-dasar-hukum-dan-pentingnya-mempelajarinya-dalam-4", "token": "7wg93d7b753m"}, {"n": 5, "nama": "Nur Fahmi Islamiah", "sanah": "Ula", "judul": "Hukum Penggunaan Kecerdasan Buatan (Artificial Intelligence) dalam Perspektif Fikih Kontemporer", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/hukum-penggunaan-kecerdasan-buatan-artificial-intelligence-dalam-5", "token": "kxfye7us97fq"}, {"n": 6, "nama": "Muhammad Fakhri", "sanah": "Sani", "judul": "Tasawuf sebagai Hayatun Ruhiyah: Kebutuhan Fitrah menuju Kebahagiaan Dunia Akhirat", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/tasawuf-sebagai-hayatun-ruhiyah-kebutuhan-fitrah-menuju-kebahagiaan-6", "token": "msadryf77dhb"}, {"n": 7, "nama": "Nur Asifah Witri", "sanah": "Sani", "judul": "Hukum Memindahkan Mayit dari Satu Negeri ke Negeri Lain: Kajian Fiqih Perbandingan Mazhab dan Penerapan Kontemporer", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/hukum-memindahkan-mayit-dari-satu-negeri-ke-negeri-lain-kajian-fiqih-7", "token": "wwuwx4hrvh2g"}, {"n": 8, "nama": "Nurafiah", "sanah": "Sani", "judul": "Perbedaan Pendapat Ulama mengenai Tertib dalam Melakukan Wudhu", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/perbedaan-pendapat-ulama-mengenai-tertib-dalam-melakukan-wudhu-8", "token": "ezs783me6aqw"}, {"n": 9, "nama": "Jamiah Safitri", "sanah": "Sani", "judul": "Mengenal Nasab Rasulullah dan Relevansinya bagi Pembentukan Akhlak Santri", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/mengenal-nasab-rasulullah-dan-relevansinya-bagi-pembentukan-akhlak-9", "token": "prtmbgmwvzs7"}, {"n": 10, "nama": "Nur Asyah Sukhal", "sanah": "Sani", "judul": "Hak-Hak Maknawi dan Kaitannya dengan Zakat Kontemporer", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/hak-hak-maknawi-dan-kaitannya-dengan-zakat-kontemporer-10", "token": "ftmrvr5qc9zv"}, {"n": 11, "nama": "Muh. Fadhel Alamsyah", "sanah": "Sani", "judul": "Delapan Faedah Berharga dari Syekh Hatim al-Asham", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/delapan-faedah-berharga-dari-syekh-hatim-al-asham-11", "token": "r497cwptzhf5"}, {"n": 12, "nama": "Nur Azizah Sulman", "sanah": "Sani", "judul": "Pemmali dan Sennung-Sennungeng dalam Tradisi Bugis: Menelusuri Jejak Dakwah Anregurutta H. Abdurrahman Ambo Dalle", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/pemmali-dan-sennung-sennungeng-dalam-tradisi-bugis-menelusuri-jejak-12", "token": "uzzs64ewnnsa"}, {"n": 13, "nama": "Aidil", "sanah": "Sani", "judul": "Badiuzzaman Said Nursi", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/badiuzzaman-said-nursi-13", "token": "jcuhh2pay3we"}, {"n": 14, "nama": "Hani Ar Rifai Nasir", "sanah": "Sani", "judul": "Prinsip Bisnis Rasulullah SAW", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/bahasa-arab-14"}, {"n": 15, "nama": "Adri Anwar", "sanah": "Sani", "judul": "Segala Perbuatan Tergantung pada Niatnya dan Menjadi Pertimbangan dalam Ibadah dan Kebiasaan", "status": "wajib-jawab", "token": "mvayzvud362y"}, {"n": 16, "nama": "Nadia Alfareza Yunus", "sanah": "Salis", "judul": "Kata Rasyada dalam Al-Qur'an (Unsur Tematik)", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/kata-rasyada-dalam-al-quran-unsur-tematik-16", "token": "pdj7yg926m39"}, {"n": 17, "nama": "Arjun", "sanah": "Sani", "judul": "Penerapan Kaidah al-Umuru bi Maqasidiha dalam Kehidupan Sehari-hari", "status": "wajib-jawab", "token": "8gu4da2zmmb2"}, {"n": 18, "nama": "Muh. Rezky Hidayat", "sanah": "Salis", "judul": "Maulid Nabi Muhammad SAW dalam Pandangan Sunnah: Kajian terhadap Argumen Hadis yang Digunakan untuk Menolak Peringatan Maulid", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/maulid-nabi-muhammad-saw-dalam-pandangan-sunnah-kajian-terhadap-argumen-18", "token": "5vgyqdz78r8c"}, {"n": 19, "nama": "Fitriani", "sanah": "Ula", "judul": "Dari Lisan ke Perbuatan: Hakikat Mahabbah kepada Rasulullah", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/dari-lisan-ke-perbuatan-hakikat-mahabbah-kepada-rasulullah-19", "token": "8aryaf5pt765"}, {"n": 20, "nama": "Salwa Hafidzah", "sanah": "Ula", "judul": "Meneladani Adab Buang Hajat: Refleksi Kesucian, Kesehatan, dan Rasa Malu dalam Islam", "status": "wajib-jawab", "token": "32898ccerxvj"}, {"n": 21, "nama": "Umar S.", "sanah": "Sani", "judul": "Hijrah", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/hijrah-21"}, {"n": 22, "nama": "Yudha Maulana", "sanah": "Sani", "judul": "Dosa dan Taubat: Ketika Seorang Hamba Jatuh, Allah Selalu Membuka Jalan untuk Kembali", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/dosa-dan-taubat-ketika-seorang-hamba-jatuh-allah-selalu-membuka-jalan-untuk-kemb-22"}, {"n": 23, "nama": "Andi Afrah Akmalia", "sanah": "Salis", "judul": "Lebih dari Sekadar Gelar: Perguruan Tinggi dalam Membentuk Manusia dan Menyongsong Masa Depan", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/lebih-dari-sekadar-gelar-perguruan-tinggi-dalam-membentuk-manusia-23", "token": "3ycmtngtfj9w"}, {"n": 24, "nama": "Nurhayati", "sanah": "Salis", "judul": "Doa yang Belum Terkabul", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/pesan-ulama-di-balik-doa-yang-belum-terkabul-24"}, {"n": 25, "nama": "Arika", "sanah": "Ula", "judul": "Pengajian Subuh: Tarbiyatul Aulad, Bab Tanggung Jawab Pendidikan Akhlak", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/pengajian-subuh-tarbiyatul-aulad-bab-tanggung-jawab-pendidikan-akhlak-25", "token": "9c8zqn8r2rfs"}, {"n": 26, "nama": "Musfirah", "sanah": "Ula", "judul": "Hikmah Dakwah dalam Peristiwa Haditsul Ifki", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/hikmah-dakwah-dalam-peristiwa-haditsul-ifki-26", "token": "t5rcvkapgwk8"}, {"n": 27, "nama": "M. Alfin Al Mubarok", "sanah": "Ula", "judul": "Keutamaan Shalat Subuh Berjamaah pada Hari Jumat dan Amalan-Amalan Sunnah di Hari Jumat", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/keutamaan-shalat-subuh-berjamaah-pada-hari-jumat-dan-amalan-amalan-27", "token": "jrjbeweg4b63"}, {"n": 28, "nama": "Wulan Sari", "sanah": "Ula", "judul": "Perbaiki Perahumu karena Lautan Itu Dalam: Membedah 4 Wasiat Rasulullah kepada Abu Dzar Al-Ghifari dalam Kitab Nashaihul Ibad", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/perbaiki-perahumu-karena-lautan-itu-dalam-membedah-4-wasiat-rasulullah-kepada-ab-28"}, {"n": 29, "nama": "Miftahul Ginayah", "sanah": "Sani", "judul": "Waktu Terlarang untuk Salat: Telaah Fikih atas Perbedaan Pendapat Ulama", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/waktu-terlarang-untuk-salat-telaah-fikih-atas-perbedaan-pendapat-ulama-29", "token": "jgxb4n3un99j"}, {"n": 30, "nama": "Muhammad Syarif", "sanah": "Sani", "judul": "Pandangan Anregurutta terhadap Peringatan Maulid Nabi Muhammad SAW", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/pandangan-anregurutta-terhadap-peringatan-maulid-nabi-muhammad-saw-30", "token": "f52djfg6grbd"}, {"n": 31, "nama": "Umar S. dan Rezky", "sanah": "Sani", "judul": "Perbedaan Pendapat Ulama soal Hukum Shalat Berjamaah: Mengapa Ada 27 dan 25 Derajat", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/perbedaan-pendapat-ulama-soal-hukum-shalat-berjamaah-mengapa-ada-27-dan-31", "token": "534n5h32br57"}, {"n": 32, "nama": "Hartiana", "sanah": "Sani", "judul": "Hukum Memindahkan Jenazah dari Satu Negeri ke Negeri Lain", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/hukum-memindahkan-jenazah-dari-satu-negeri-ke-negeri-lain-32"}, {"n": 33, "nama": "Arham", "sanah": "Sani", "judul": "Riya dalam Pandangan Islam", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/riya-dalam-pandangan-islam-33", "token": "szejqdcbgsw7"}, {"n": 34, "nama": "Andi Muhammad Faried Rizki", "sanah": "Sani", "judul": "Keutamaan Nabi Muhammad atas Para Nabi: Telaah atas Pembahasan Al-'Izz bin 'Abdussalam", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/keutamaan-nabi-muhammad-atas-para-nabi-telaah-atas-pembahasan-al-izz-bin-abdussa-34"}, {"n": 35, "nama": "Naura Marhamah Ramadhani", "sanah": "Sani", "judul": "Menggali Hikmah dan fikih di balik perjalanan Rasulullah", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/menggali-hikmah-dan-fikih-di-balik-perjalanan-rasulullah-35", "token": "4vtnqh26fj2q"}, {"n": 36, "nama": "Ihsan Fadil", "sanah": "Salis", "judul": "Dialektika Syariat, Hakikat, dan Ilmu Batin", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/dialektika-syariat-hakikat-dan-ilmu-batin-36", "token": "w4nu5bjvjn44"}, {"n": 37, "nama": "Dzulkifli", "sanah": "Salis", "judul": "Prinsip-Prinsip Persaudaraan menurut Syariat Islam", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/prinsip-prinsip-persaudaraan-menurut-syariat-islam-37", "token": "9jfzj7aetdtg"}, {"n": 38, "nama": "Imran", "sanah": "Salis", "judul": "Hikmah Kebahasaan dan Pelajaran Keimanan dalam Surah Al-Hasyr", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/hikmah-kebahasaan-dan-pelajaran-keimanan-dalam-surah-al-hasyr-38"}, {"n": 39, "nama": "Imran", "sanah": "Salis", "judul": "Ni'mat asy-Syukr wa Syukr an-Ni'mah", "status": "selesai", "token": "szdeunuewshj"}, {"n": 40, "nama": "Sitti Mardhiyyah", "sanah": "Salis", "judul": "Membedah Riya’ dan Tingkatannya dalam Mau’izhah al-Mu’minin", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/membedah-riya-dan-tingkatannya-dalam-mauizhah-al-muminin-40", "token": "z8ga758kyvvs"}, {"n": 41, "nama": "Wiladah Mazkiyah", "sanah": "Salis", "judul": "Keutamaan Ubay bin Ka'ab dan Keistimewaan Ayat Kursi", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/keutamaan-ubay-bin-ka-ab-dan-keistimewaan-ayat-kursi-41"}, {"n": 42, "nama": "Qurratul Ainiah", "sanah": "Salis", "judul": "Munasabah Surah Al-Muzzammil dan Surah Al-Muddassir: Dari Memperbaiki Diri Menuju Memperbaiki Umat", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/munasabah-surah-al-muzzammil-dan-surah-al-muddassir-dari-memperbaiki-diri-menuju-42"}, {"n": 43, "nama": "Maghfirahtul Hikmah", "sanah": "Salis", "judul": "Klasifikasi Air dan Hukum Perubahannya dalam Fiqih Islam", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/klasifikasi-air-dan-hukum-perubahannya-dalam-fiqih-islam-43", "token": "rn8f5trfb6cz"}, {"n": 44, "nama": "Nadhifah Ramadhani", "sanah": "Salis", "judul": "Doa: Amalan Istimewa sebagai Bentuk Komunikasi antara Hamba dan Allah SWT", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/doa-amalan-istimewa-sebagai-bentuk-komunikasi-antara-hamba-dan-allah-swt-44"}, {"n": 45, "nama": "Muhammad Sabir", "sanah": "Salis", "judul": "Kaidah Al-Ashlu Bara'atu adz-Dzimmah: Hukum Asal Seseorang Bebas dari Tanggungan", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/kaidah-al-ashlu-baraatu-adz-dzimmah-hukum-asal-seseorang-bebas-dari-45", "token": "wa8hy9trxq52"}, {"n": 46, "nama": "Balqis Tabina Adawiyah", "sanah": "Sani", "judul": "Definisi Puasa dan Rukun-Rukunnya dalam Perspektif Empat Mazhab", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/definisi-puasa-dan-rukun-rukunnya-dalam-perspektif-empat-mazhab-46", "token": "kcbxeue3kfu5"}, {"n": 47, "nama": "Ahsan Abul Khair", "sanah": "Salis", "judul": "Keutamaan Al-Qur'an dan Kisah Ubay bin Ka'ab r.a.: Hikmah Mulia di Balik Al-Qur'an dan Dzikir Istiqamah", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/keutamaan-al-qur-an-dan-kisah-ubay-bin-ka-ab-r-a-hikmah-mulia-di-balik-al-qur-an-47"}, {"n": 48, "nama": "Ahsan Abul Khair", "sanah": "Salis", "judul": "Makna Dosa, Tobat, serta Pelajaran dari Kisah Nabi Adam a.s. dan Siti Hawa", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/makna-dosa-tobat-serta-pelajaran-dari-kisah-nabi-adam-a-s-dan-siti-hawa-48", "token": "kpa5cbvbbk6v"}, {"n": 49, "nama": "Baso Ihsan", "sanah": "Salis", "judul": "KISAH NABI YUNUS DAN KEKUATAN TAUHID: REFLEKSI KEIMANAN, PENDIDIKAN NAFSU, DAN PERSIAPAN MENUJU AKHIRAT DALAM PERSPEKTIF SAID NURSI", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/kisah-nabi-yunus-dan-kekuatan-tauhid-refleksi-keimanan-pendidikan-nafsu-49", "token": "m3spsu3uks42"}, {"n": 50, "nama": "Muhammad Nur Said", "sanah": "Salis", "judul": "Mulianya Sesuatu yang Berkaitan dengan Al-Qur'an", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/mulianya-sesuatu-yang-berkaitan-dengan-al-quran-50", "token": "xs4vzcyks83n"}, {"n": 51, "nama": "Muhammad Ashabul Kahfi", "sanah": "Salis", "judul": "Antara Sah dan Diterima: Buah Nyata Sebuah Ibadah", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/antara-sah-dan-diterima-buah-nyata-sebuah-ibadah-51", "token": "hkh7n2xyf52z"}, {"n": 52, "nama": "Imam Qurthuby", "sanah": "Salis", "judul": "Perbedaan Pendapat Ulama tentang Hukum Sholat Berjama'ah", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/perbedaan-pendapat-ulama-tentang-hukum-sholat-berjama-ah-52", "url2": "https://mahadaly-ddimangkoso.my.id/artikel/iman-kepada-kitab-allah-sebagai-kompas-hidup-di-abad-modern-52b"}, {"n": 53, "nama": "Ifdal Maulana", "sanah": "Salis", "judul": "Penjelasan tentang Tercelanya Riya", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/penjelasan-tentang-tercelanya-riya-53", "token": "bqc3cbwn2dcj"}, {"n": 54, "nama": "Siti Hajar", "sanah": "Salis", "judul": "Membedah Kitab Al-Lama'at: Kajian Tematik Al-Qur'an dalam Pemikiran Badiuzzaman Said Nursi", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/membedah-kitab-al-lamaat-kajian-tematik-al-quran-dalam-pemikiran-54", "token": "kn8gd5g998sn"}, {"n": 55, "nama": "Dirga Wahyu Fani", "sanah": "Salis", "judul": "Kandungan Mulia Surah Al-Insyirah tentang Penguatan Hati dan Perjuangan Dakwah Rasulullah SAW", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/kandungan-mulia-surah-al-insyirah-tentang-penguatan-hati-dan-perjuangan-55"}, {"n": 56, "nama": "M. Faiz", "sanah": "Ula", "judul": "Harmoni Iman dan Sains: Menatap Langit Melalui Lensa Al-Qur'an dan Kosmologi Modern", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/harmoni-iman-dan-sains-menatap-langit-melalui-lensa-al-quran-dan-56", "token": "6qyfkjgcwnuf"}, {"n": 57, "nama": "Nur Halizah", "sanah": "Salis", "judul": "Fikih Medis: Kemudahan dalam Pelaksanaan Ibadah bagi Orang Sakit", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/nur-haliza-57"}, {"n": 58, "nama": "Umar", "sanah": "Ula", "judul": "KEUTAMAAN AL-QUR'AN DALAM KEHIDUPAN SEORANG MUSLIM", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/keutamaan-al-quran-dalam-kehidupan-seorang-muslim-58"}, {"n": 59, "nama": "Abdul Aziz Rajab", "sanah": "Ula", "judul": "Ateisme: Konsep, Ragam Pemahaman, dan Tinjauan dalam Perspektif Filsafat Agama dan Islam", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/ateisme-konsep-ragam-pemahaman-dan-tinjauan-dalam-perspektif-filsafat-59", "token": "vr57rufut7xm"}, {"n": 60, "nama": "Muh. Imam Efendi", "sanah": "Sani", "judul": "Hakikat Rezeki, Muhasabah Diri, dan Jalan Menuju Kedekatan dengan Allah", "status": "wajib-jawab", "token": "4848c94gxebr"}, {"n": 61, "nama": "Abdul Khaliq Al Qadri", "sanah": "Salis", "judul": "(Tanpa judul di naskah)", "status": "ditolak"}, {"n": 62, "nama": "Muhajir", "sanah": "Ula", "judul": "Pentingnya Adab dalam Menuntut Ilmu Menurut Kitab Ta'limul Muta'allim", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/pentingnya-adab-dalam-menuntut-ilmu-menurut-kitab-talimul-mutaallim-62"}, {"n": 63, "nama": "Muh. Mutawalliy Asy-Sya'rawiy", "sanah": "Salis", "judul": "Perbedaan Pendapat Ulama Terkait Jumlah Ayat dan Wakaf pada Surah Al-Fatihah", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/perbedaan-pendapat-ulama-terkait-jumlah-ayat-dan-wakaf-pada-surah-al-63", "token": "ufkr5rhhvwmx"}, {"n": 64, "nama": "Chaidir Ashar", "sanah": "Sani", "judul": "Berguru atau Tersesat", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/hatiku-sakit-mendengarnya-menghina-nabiku-tapi-yang-menghina-itu-adalah-64"}, {"n": 65, "nama": "Nur Hidayat", "sanah": "Salis", "judul": "(Tanpa judul di naskah)", "status": "ditolak"}, {"n": 66, "nama": "Fikran Zahir Rahmat", "sanah": "Rabi", "judul": "Dewan Mahasantri Asosiasi Mahad Aly Wilayah Sulawesi-Kalimantan-NTB dan Dewan Mahasantri Mahad Aly DDI Mangkoso Sukses Gelar Bahtsul Masail Julid II Tingkat Se-Sulsebar", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/bahtsul-masail-jilid-ii-se-sultan-66"}, {"n": 67, "nama": "Achmad Munawwar", "sanah": "Sani", "judul": "Sikap dalam Memahami, Mengamalkan, dan Menyerukan Agama Islam", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/sikap-dalam-memahami-mengamalkan-dan-menyerukan-agama-islam-67", "token": "yksazwg6enkd"}, {"n": 68, "nama": "Fitrah", "sanah": "Rabi", "judul": "Betulkah Tidak Banyak Ayat tentang Zakat dalam Al-Qur'an?", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/betulkah-tidak-banyak-ayat-tentang-zakat-dalam-al-quran-68"}, {"n": 0, "nama": "Mona Az-zaqiyyah", "sanah": "Ula", "judul": "Dari Perut Ikan hingga Luka Nabi Ayyub: Pelajaran Munajat dari Kajian Mona", "status": "terbit", "url": "https://mahadaly-ddimangkoso.my.id/artikel/dari-perut-ikan-hingga-luka-nabi-ayyub-pelajaran-munajat-dari-kajian-mona", "slug": "mona-az-zaqiyyah"}, {"n": 0, "nama": "Nur Awaliah Rahmah", "sanah": "Ula", "judul": "", "status": "belum-mengirim", "ket": "sakit", "slug": "nur-awaliah-rahmah"}, {"n": 0, "nama": "Rifat Ulil Syafa", "sanah": "Sani", "judul": "", "status": "belum-mengirim", "ket": "izin Bait Qur'an", "slug": "rifat-ulil-syafa"}, {"n": 0, "nama": "Siti Nurfadilah", "sanah": "Sani", "judul": "", "status": "belum-mengirim", "ket": "izin Bait Qur'an", "slug": "siti-nurfadilah"}, {"n": 0, "nama": "Ghina", "sanah": "Salis", "judul": "", "status": "belum-mengirim", "ket": "sakit berat", "slug": "ghina"}, {"n": 0, "nama": "Kiki", "sanah": "Salis", "judul": "", "status": "belum-mengirim", "ket": "sakit berat", "slug": "kiki"}];
+  var SUPABASE = "https://ymxijorgoucpsxgcvtgu.supabase.co";
+  var KUNCI = "sb_publishable_8Y6NE0t_5z4Jo2u3G50bbQ_e1qTTOB-";
+  var DASAR = location.origin + location.pathname;
+  var SANAH = ["Ula", "Sani", "Salis", "Rabi"];
+  var TEKS_STATUS = {
+    "terbit": "Tulisanmu sudah terbit di web Ma'had Aly DDI Mangkoso. Bagikan kode QR di bawah agar tulisanmu dibaca lebih banyak orang.",
+    "wajib-jawab": "Ada catatan editor yang wajib kamu jawab atas tulisanmu. Baca catatan lengkapnya di Laman Revisi di bawah, perbaiki tulisanmu, lalu kabari lewat tombol Balas Catatan Editor.",
+    "ditolak": "Tulisanmu belum dapat diterbitkan. Baca catatan editor di Laman Revisi di bawah sebagai bahan perbaikanmu.",
+    "selesai": "Perkara tulisan ini sudah ditutup atas ketetapan dosen. Tulisanmu yang lain tetap dapat dibaca di web Ma'had Aly.",
+    "belum-mengirim": "Kamu tercatat belum mengumpulkan tulisan. Hubungi dosenmu bila ada keterangan lebih lanjut."
+  };
+  var saya = null;
+  var cekTimer = null;
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function el(id) { return document.getElementById(id); }
+  function idDari(m) { return m.token ? m.token : ("m" + (m.n ? m.n : m.slug)); }
+  function cariDariId(id) {
+    for (var i = 0; i < DATA.length; i++) if (idDari(DATA[i]) === id) return DATA[i];
+    return null;
+  }
+  function tautanPribadi(m) { return DASAR + "?" + (m.token ? "k=" : "m=") + encodeURIComponent(idDari(m)); }
+
+  /* ===== Pemilih ===== */
+  function bangunSanah() {
+    var g = el("sanah-grid");
+    g.innerHTML = "";
+    SANAH.forEach(function (s) {
+      var jumlah = DATA.filter(function (m) { return m.sanah === s; }).length;
+      if (!jumlah) return;
+      var b = document.createElement("button");
+      b.className = "sanah-btn";
+      b.innerHTML = "Sanah " + s + "<small>" + jumlah + " nama</small>";
+      b.onclick = function () { tampilNama(s); };
+      g.appendChild(b);
+    });
+  }
+  function tampilNama(s) {
+    el("kartu-nama").classList.remove("sembunyi");
+    el("judul-sanah").textContent = "Sanah " + s + " — pilih namamu";
+    el("cari-nama").value = "";
+    gambarNama(s, "");
+    el("kartu-nama").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  function gambarNama(s, kata) {
+    var wadah = el("daftar-nama");
+    wadah.innerHTML = "";
+    var daftar = DATA.filter(function (m) {
+      return m.sanah === s && (!kata || m.nama.toLowerCase().indexOf(kata.toLowerCase()) >= 0);
+    });
+    if (!daftar.length) { wadah.innerHTML = '<p class="redup">Nama tidak ditemukan. Periksa ejaannya.</p>'; return; }
+    daftar.forEach(function (m) {
+      var b = document.createElement("button");
+      b.className = "nama-item";
+      b.innerHTML = '<span class="nm">' + esc(m.nama) + '</span><span class="chip ' + m.status + '">' +
+        ({ "terbit": "Terbit", "wajib-jawab": "Wajib Jawab", "ditolak": "Belum Terbit", "selesai": "Selesai", "belum-mengirim": "Belum Mengirim" })[m.status] +
+        "</span>" + (m.judul ? '<div class="jd">' + esc(m.judul) + "</div>" : "");
+      b.onclick = function () { masuk(m, true); };
+      wadah.appendChild(b);
+    });
+  }
+
+  /* ===== QR ===== */
+  function gambarQR(wadah, teks) {
+    wadah.innerHTML = "";
+    try {
+      var qr = qrcode(0, "M");
+      qr.addData(teks);
+      qr.make();
+      wadah.innerHTML = qr.createSvgTag({ cellSize: 6, margin: 8, scalable: true });
+    } catch (e) {
+      wadah.innerHTML = '<p class="redup">Kode QR belum dapat dibuat. Pakai tautan di bawah ini.</p>';
+    }
+  }
+
+  /* ===== Dashboard ===== */
+  function masuk(m, dorongUrl) {
+    saya = m;
+    try { localStorage.setItem("mahasantri-id", idDari(m)); } catch (e) {}
+    if (dorongUrl) history.replaceState(null, "", tautanPribadi(m));
+    el("v-pilih").classList.add("sembunyi");
+    el("v-dash").classList.remove("sembunyi");
+    el("d-nama").textContent = m.nama;
+    el("d-sanah").textContent = "Sanah " + m.sanah + (m.n ? " — Nomor urut tulisan " + m.n : "");
+    el("d-status").textContent = TEKS_STATUS[m.status] || "";
+    var tautanQR = m.url || tautanPribadi(m);
+    el("qr-judul").textContent = m.url ? "QR Code Tulisan Saya" : "QR Tautan Pribadiku";
+    el("qr-ket").textContent = m.url
+      ? "Pindai kode ini untuk langsung membuka tulisanmu: " + (m.judul || "")
+      : "Tulisanmu belum terbit, jadi kode ini menuju laman pribadimu ini. Bagikan hanya kode tulisanmu kelak sesudah terbit.";
+    gambarQR(el("qr-utama"), tautanQR);
+    el("qr-url").textContent = tautanQR;
+    if (m.url2) {
+      el("qr-kedua-wrap").classList.remove("sembunyi");
+      gambarQR(el("qr-kedua"), m.url2);
+      el("qr-url2").textContent = m.url2;
+    } else {
+      el("qr-kedua-wrap").classList.add("sembunyi");
+    }
+    muatCatatan(false);
+    siapkanNotif();
+    window.scrollTo({ top: 0 });
+  }
+
+  /* ===== Laman revisi (Supabase, pola sama dengan catatan.html) ===== */
+  function ambilCatatan() {
+    if (!saya || !saya.token) return Promise.resolve(null);
+    var headers = { "apikey": KUNCI, "Authorization": "Bearer " + KUNCI };
+    return fetch(SUPABASE + "/rest/v1/catatan_editor?token=eq." + encodeURIComponent(saya.token) + "&select=penulis,judul,komentar,hangus,tautan_balas", { headers: headers })
+      .then(function (r) { return r.json(); })
+      .then(function (rows) { return rows && rows.length ? rows[0] : null; });
+  }
+  function sidikCatatan(c) {
+    if (!c) return "kosong";
+    return (c.hangus ? "hangus|" : "aktif|") + (c.komentar || "");
+  }
+  function muatCatatan(dariNotif) {
+    var wadah = el("revisi-isi");
+    if (!saya.token) {
+      wadah.innerHTML = '<p class="status-besar">Belum ada catatan revisi atas namamu. Bila dosenmu menulis catatan untukmu, catatan itu akan muncul di sini.</p>';
+      return Promise.resolve();
+    }
+    return ambilCatatan().then(function (c) {
+      if (!c) {
+        wadah.innerHTML = '<p class="status-besar">Belum ada catatan revisi atas namamu saat ini.</p>';
+      } else if (c.hangus) {
+        wadah.innerHTML = '<p class="status-besar">Catatan editor untuk tulisanmu sudah hangus. Masa koreksinya sudah ditutup.</p>';
+      } else {
+        wadah.innerHTML =
+          (c.judul ? '<p class="redup" style="margin-top:0">Untuk tulisan: ' + esc(c.judul) + "</p>" : "") +
+          '<div class="isi-catatan">' + esc(c.komentar) + "</div>" +
+          (c.tautan_balas ? '<a class="tombol" href="' + esc(c.tautan_balas) + '">Balas Catatan Editor</a>' : "") +
+          '<p class="redup">Berkas perbaikanmu kumpulkan ulang ke folder Pengumpulan Naskah kelasmu, folder yang sama seperti pengumpulan awal, lalu kabari lewat tombol Balas Catatan Editor.</p>';
+        var headers = { "apikey": KUNCI, "Authorization": "Bearer " + KUNCI, "Content-Type": "application/json", "Prefer": "return=minimal" };
+        fetch(SUPABASE + "/rest/v1/catatan_akses", { method: "POST", headers: headers, body: JSON.stringify({ token: saya.token }) }).catch(function () {});
+      }
+      try {
+        var kunciSimpan = "sidik-catatan-" + idDari(saya);
+        var lama = localStorage.getItem(kunciSimpan);
+        var baru = sidikCatatan(c);
+        if (dariNotif && lama !== null && lama !== baru) beritahu("Catatan editor untukmu berubah. Buka laman mahasantrimu untuk membacanya.");
+        localStorage.setItem(kunciSimpan, baru);
+      } catch (e) {}
+    }).catch(function () {
+      wadah.innerHTML = '<p class="status-besar">Gangguan sambungan saat memeriksa catatan. Coba lagi sebentar lagi.</p>';
+    });
+  }
+
+  /* ===== Notifikasi ===== */
+  function beritahu(teks) {
+    if ("Notification" in window && Notification.permission === "granted") {
+      try { new Notification("Ma'had Aly DDI Mangkoso", { body: teks }); } catch (e) {}
+    }
+  }
+  function siapkanNotif() {
+    var btn = el("btn-notif"), status = el("notif-status");
+    el("btn-cek").classList.remove("sembunyi");
+    if (!("Notification" in window)) {
+      btn.disabled = true;
+      status.textContent = "Peramban ini tidak menyediakan notifikasi. Periksa catatanmu dengan tombol Periksa Catatan Sekarang di bawah.";
+      return;
+    }
+    if (Notification.permission === "granted") {
+      btn.textContent = "Notifikasi Sudah Aktif";
+      mulaiCekBerkala();
+    }
+  }
+  function mulaiCekBerkala() {
+    if (cekTimer) return;
+    cekTimer = setInterval(function () { muatCatatan(true); }, 180000);
+  }
+
+  /* ===== Template story ===== */
+  function gambarTemplate() {
+    if (!saya) return;
+    var target = saya.url || tautanPribadi(saya);
+    var W = 1080, H = 1920;
+    var cv = document.createElement("canvas");
+    cv.width = W; cv.height = H;
+    var x = cv.getContext("2d");
+    x.fillStyle = "#faf6ea"; x.fillRect(0, 0, W, H);
+    x.fillStyle = "#0b4a25"; x.fillRect(0, 0, W, 300);
+    x.fillStyle = "#f4e8c1"; x.fillRect(0, 300, W, 10);
+    x.fillStyle = "#ffffff";
+    x.font = "800 47px 'Segoe UI', Arial, sans-serif";
+    x.textAlign = "left";
+    x.fillText("Ma'had Aly DDI Mangkoso", 190, 122);
+    x.font = "600 29px 'Segoe UI', Arial, sans-serif";
+    x.fillStyle = "#f4e8c1";
+    x.fillText("PENDIDIKAN TINGGI KADER ULAMA", 192, 176);
+    x.textAlign = "center";
+    x.font = "700 34px 'Segoe UI', Arial, sans-serif";
+    x.fillText(saya.url ? "TULISANKU TERBIT" : "LAMAN MAHASANTRIKU", W / 2, 252);
+    x.fillStyle = "#1c2321";
+    x.font = "800 62px 'Segoe UI', Arial, sans-serif";
+    bungkus(x, saya.nama, W / 2, 470, 900, 76);
+    x.font = "400 40px Georgia, serif";
+    x.fillStyle = "#3d4a43";
+    if (saya.judul) bungkus(x, saya.judul, W / 2, 640, 880, 56);
+    x.fillStyle = "#ffffff";
+    bulat(x, 190, 900, 700, 700, 28); x.fill();
+    x.strokeStyle = "#0b4a25"; x.lineWidth = 6; bulat(x, 190, 900, 700, 700, 28); x.stroke();
+    try {
+      var qr = qrcode(0, "M");
+      qr.addData(target);
+      qr.make();
+      var n = qr.getModuleCount(), sel = 640 / n, awal = (W - 640) / 2, atas = 930;
+      x.fillStyle = "#000000";
+      for (var r = 0; r < n; r++) for (var c = 0; c < n; c++)
+        if (qr.isDark(r, c)) x.fillRect(awal + c * sel, atas + r * sel, Math.ceil(sel), Math.ceil(sel));
+    } catch (e) {}
+    x.fillStyle = "#0b4a25";
+    x.font = "700 36px 'Segoe UI', Arial, sans-serif";
+    x.fillText("Pindai untuk membaca", W / 2, 1720);
+    x.font = "400 30px 'Segoe UI', Arial, sans-serif";
+    x.fillStyle = "#5a6660";
+    x.fillText("mahadaly-ddimangkoso.my.id", W / 2, 1785);
+    var logo = new Image();
+    logo.onload = function () {
+      x.fillStyle = "#ffffff"; x.beginPath(); x.arc(105, 108, 64, 0, 7); x.fill();
+      x.drawImage(logo, 48, 51, 114, 114);
+      unduh(cv);
+    };
+    logo.onerror = function () { unduh(cv); };
+    logo.src = "logo-mahadaly.png";
+  }
+  function bulat(x, a, b, w, h, r) {
+    x.beginPath();
+    x.moveTo(a + r, b);
+    x.arcTo(a + w, b, a + w, b + h, r);
+    x.arcTo(a + w, b + h, a, b + h, r);
+    x.arcTo(a, b + h, a, b, r);
+    x.arcTo(a, b, a + w, b, r);
+    x.closePath();
+  }
+  function bungkus(x, teks, cx, y, lebar, tinggiBaris) {
+    var kata = String(teks).split(/\s+/), baris = "", hasil = [];
+    for (var i = 0; i < kata.length; i++) {
+      var coba = baris ? baris + " " + kata[i] : kata[i];
+      if (x.measureText(coba).width > lebar && baris) { hasil.push(baris); baris = kata[i]; } else baris = coba;
+    }
+    if (baris) hasil.push(baris);
+    hasil.slice(0, 4).forEach(function (b, i) { x.fillText(b, cx, y + i * tinggiBaris); });
+    return y + hasil.slice(0, 4).length * tinggiBaris;
+  }
+  function unduh(cv) {
+    cv.toBlob(function (blob) {
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "story-tulisan-" + (saya.nama || "mahasantri").toLowerCase().replace(/[^a-z0-9]+/g, "-") + ".png";
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+    }, "image/png");
+  }
+
+  /* ===== Peristiwa ===== */
+  el("btn-ganti-sanah").onclick = function () { el("kartu-nama").classList.add("sembunyi"); };
+  el("cari-nama").addEventListener("input", function () {
+    var s = el("judul-sanah").textContent.replace("Sanah ", "").split(" ")[0];
+    gambarNama(s, this.value);
+  });
+  el("btn-ganti-nama").onclick = function () {
+    try { localStorage.removeItem("mahasantri-id"); } catch (e) {}
+    history.replaceState(null, "", DASAR);
+    el("v-dash").classList.add("sembunyi");
+    el("v-pilih").classList.remove("sembunyi");
+  };
+  el("btn-template").onclick = gambarTemplate;
+  el("btn-salin").onclick = function () {
+    var t = (saya && (saya.url || tautanPribadi(saya))) || "";
+    if (navigator.clipboard) navigator.clipboard.writeText(t).then(function () { el("btn-salin").textContent = "Tersalin"; setTimeout(function () { el("btn-salin").textContent = "Salin Tautan"; }, 1800); });
+  };
+  el("btn-bagikan").onclick = function () {
+    var t = (saya && (saya.url || tautanPribadi(saya))) || "";
+    var teks = saya.url ? ("Baca tulisanku di web Ma'had Aly DDI Mangkoso: " + (saya.judul || "") + " " + t) : ("Laman mahasantriku di web Ma'had Aly DDI Mangkoso: " + t);
+    if (navigator.share) { navigator.share({ title: "Ma'had Aly DDI Mangkoso", text: teks, url: t }).catch(function () {}); }
+    else window.open("https://wa.me/?text=" + encodeURIComponent(teks), "_blank");
+  };
+  el("btn-notif").onclick = function () {
+    if (!("Notification" in window)) return;
+    Notification.requestPermission().then(function (h) {
+      if (h === "granted") {
+        el("btn-notif").textContent = "Notifikasi Sudah Aktif";
+        beritahu("Notifikasi laman mahasantri aktif. Kamu akan diberi tahu bila catatan editormu berubah selagi halaman ini terbuka.");
+        mulaiCekBerkala();
+      }
+    });
+  };
+  el("btn-cek").onclick = function () { muatCatatan(true); };
+
+  /* ===== Mulai ===== */
+  bangunSanah();
+  var q = new URLSearchParams(location.search);
+  var idAwal = q.get("k") || q.get("m");
+  if (!idAwal) { try { idAwal = localStorage.getItem("mahasantri-id"); } catch (e) {} }
+  if (idAwal) {
+    var m0 = cariDariId(idAwal);
+    if (m0) masuk(m0, false);
+  }
+})();
+</script>
+</body>
+</html>
