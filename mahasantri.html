@@ -17,7 +17,7 @@
   /* ===== Header meniru web utama Ma'had Aly ===== */
   .situs-header { background: linear-gradient(135deg, var(--hijau-gelap) 0%, var(--hijau-tua) 55%, var(--hijau) 100%); color: #fff; border-bottom: 4px solid var(--krem); }
   .situs-header .dalam { max-width: 1080px; margin: 0 auto; padding: 14px 16px 10px; display: flex; align-items: center; gap: 14px; }
-  .situs-header img.logo { width: 56px; height: 56px; object-fit: contain; background: #fff; border-radius: 50%; padding: 3px; flex: none; }
+  .situs-header img.logo { width: 56px; height: 56px; object-fit: contain; flex: none; }
   .situs-header .nama { line-height: 1.15; }
   .situs-header .nama .besar { font-size: 21px; font-weight: 800; letter-spacing: .01em; }
   .situs-header .nama .kecil { font-size: 12.5px; color: var(--krem); letter-spacing: .06em; text-transform: uppercase; margin-top: 3px; }
@@ -398,9 +398,7 @@
     qrKe(x, info.target, cx - qr / 2, cy - qr / 2, qr, "#141414");
   }
   function lencana(x, cx, cy, r) {
-    x.fillStyle = "#ffffff";
-    x.beginPath(); x.arc(cx, cy, r, 0, 7); x.fill();
-    if (logoSiap) x.drawImage(logoImg, cx - r * 0.84, cy - r * 0.84, r * 1.68, r * 1.68);
+    if (logoSiap) x.drawImage(logoImg, cx - r, cy - r, r * 2, r * 2);
   }
   function labelAtas(x, info, warna) {
     x.font = "700 34px 'Segoe UI', Arial, sans-serif"; x.fillStyle = warna; x.textAlign = "center";
