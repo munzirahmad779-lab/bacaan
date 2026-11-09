@@ -121,6 +121,17 @@
       .putusan-foto { background: var(--gold-soft); color: var(--kind-prioritaskan-text); }
       .putusan-jawab { background: var(--kind-tambahan-bg); color: var(--kind-tambahan-text); }
       .putusan-ditolak { background: var(--kind-koreksi-bg); color: var(--kind-koreksi-text); }
+      .putusan-selesai { background: var(--note-bg); color: var(--accent); border: 1px solid var(--note-border); }
+      @media (prefers-color-scheme: dark) { .putusan-selesai { color: var(--text); } }
+      .inti h3 {
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        color: var(--accent);
+        margin: 0 0 5px;
+      }
+      @media (prefers-color-scheme: dark) { .inti h3 { color: var(--text); } }
+      .inti-body { margin: 0; overflow-wrap: break-word; }
       .result-info { color: var(--dim); font-size: 0.92rem; margin: 10px 0 0; min-height: 1.4em; }
       .cards { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
       .card {
@@ -207,13 +218,12 @@
       <header class="page-head">
         <h1>Inti Tulisan dan Catatan Editor</h1>
         <p class="sub">Ma'had Aly DDI Mangkoso</p>
-        <p class="count">67 tulisan &middot; 67 catatan editor</p>
+        <p class="count">68 tulisan &middot; 67 catatan editor</p>
         <div class="petunjuk">
           <strong>Untuk mahasantri</strong>
           <p>Cari namamu pada kolom pencarian di bawah ini, lalu ketuk tulisanmu untuk membaca catatan editor. Label di bawah judul menunjukkan putusan untuk tulisanmu.</p>
-          <p>Kerjakan catatan tersebut: tulisan yang wajib jawab harus dijawab atau dikerjakan dulu sebelum bisa terbit, tulisan yang sisa masukkan foto tinggal dilengkapi fotonya, dan tulisan yang ditolak dibuat baru lalu dikumpulkan ulang. Sesudah diperbaiki, upload ulang hasil perbaikanmu ke folder kelasmu di Drive.</p>
+          <p>Kerjakan catatan tersebut: tulisan yang wajib jawab harus dijawab atau dikerjakan dulu sebelum bisa terbit, dan tulisan yang ditolak dibuat baru lalu dikumpulkan ulang. Sesudah diperbaiki, upload ulang hasil perbaikanmu ke folder kelasmu di Drive.</p>
           <p>Bila tulisanmu wajib jawab, cukup tekan tombol <strong>Balas Catatan</strong> pada kartumu: nama dan nomormu sudah terisi otomatis di formulir, tinggal menulis balasanmu lalu kirim.</p>
-          <p>Bila tulisanmu sisa masukkan foto, tekan tombol <strong>Upload Foto</strong> pada kartumu untuk langsung mengunggah foto ke folder tulisanmu, tanpa perlu membalas formulir.</p>
         </div>
       </header>
       <div class="tools">
@@ -227,11 +237,11 @@
           <button class="filter-btn" type="button" data-filter="berita" aria-pressed="false">Berita dan Siaran Pers</button>
         </div>
         <div class="filters filters-status" role="group" aria-label="Saringan putusan tulisan">
-          <button class="filter-btn status-btn" type="button" data-status-filter="semua" aria-pressed="true">Semua Status (67)</button>
-          <button class="filter-btn status-btn" type="button" data-status-filter="publish" aria-pressed="false">Sudah Publish (5)</button>
-          <button class="filter-btn status-btn" type="button" data-status-filter="foto" aria-pressed="false">Diterima Bersyarat · Sisa Foto (12)</button>
-          <button class="filter-btn status-btn" type="button" data-status-filter="jawab" aria-pressed="false">Diterima Bersyarat · Wajib Jawab (42)</button>
-          <button class="filter-btn status-btn" type="button" data-status-filter="ditolak" aria-pressed="false">Ditolak (8)</button>
+          <button class="filter-btn status-btn" type="button" data-status-filter="semua" aria-pressed="true">Semua Status (68)</button>
+          <button class="filter-btn status-btn" type="button" data-status-filter="publish" aria-pressed="false">Sudah Publish (60)</button>
+          <button class="filter-btn status-btn" type="button" data-status-filter="jawab" aria-pressed="false">Diterima Bersyarat · Wajib Jawab (6)</button>
+          <button class="filter-btn status-btn" type="button" data-status-filter="ditolak" aria-pressed="false">Ditolak (1)</button>
+          <button class="filter-btn status-btn" type="button" data-status-filter="selesai" aria-pressed="false">Selesai atas Ketetapan Dosen (1)</button>
         </div>
         <p class="result-info" id="info" aria-live="polite"></p>
       </div>
@@ -251,6 +261,7 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 1">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">kau klaim kalau asy&#x27;ari dan asya&#x27;irah yang ada sekarang itu berbeda, berarti kamu menuduh orang orang yang berfaham asy&#x27;ari sekarang sudah berbeda dengan yang d fahami imam asy&#x27;ari sendiri ? berarti sesat semua yang asy&#x27;ari sekarang ? termasuk imam ibnu hajar al asqalani ? <br>Apa Sanggahan mu?</p></div>
+      <div class="note"><p class="note-body">Cek kembali tulisanmu terhadap hasil koreksian editor berikut: dua entri daftar pustakamu masih memuat kalimat templat petunjuk pengisian yang belum diganti dengan data penerbit dan tahun edisi yang sebenarnya kamu pakai. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
     <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=1&amp;entry.634068761=Faridwajedy&amp;entry.899447176=Sanah+Ula&amp;entry.218540780=Makna+Iman+menurut+Imam+Abu+Hasan+Al-Asy%27ari+dan+Relevansinya+dalam+Kehidupan+Muslim" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
@@ -270,18 +281,19 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 2">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">Tambahkan manfaat shalawat, karena implementasi tanpa hasil itu merupakan kekurangan.</p></div>
+      <div class="note"><p class="note-body">Cek kembali tulisanmu terhadap hasil koreksian editor berikut: kalimat Arab tentang keutamaan shalawat tampil tanpa penyebutan sumbernya, dan hadis tentang orang yang paling berhak dekat dengan Rasulullah pada hari kiamat belum kamu beri takhrij. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
     <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=2&amp;entry.634068761=Muhammad+Fajrul+Amin&amp;entry.899447176=Sanah+Ula&amp;entry.218540780=Shalawat+kepada+Nabi+Muhammad+SAW%3A+Makna%2C+Keutamaan%2C+dan+Implementasinya+dalam+Kehidupan+Umat+Islam" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-3" data-group="tematik" data-search="maulidiyyah urgensi salat subuh berjamaah dan manfaatnya: titik temu habluminallah wa habluminannas" data-status="jawab">
+<article class="card" id="tulisan-3" data-group="tematik" data-search="maulidiyyah urgensi salat subuh berjamaah dan manfaatnya: titik temu habluminallah wa habluminannas" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-3">
     <span class="num" aria-hidden="true">3</span>
     <span class="head-main">
       <span class="author">Maulidiyyah</span>
       <span class="title">Urgensi Salat Subuh Berjamaah dan Manfaatnya: Titik Temu Habluminallah wa Habluminannas</span>
       <span class="meta">Sanah Ula · Kajian Tematik</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -289,18 +301,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 3">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">jamaah yang absen akan dicari dan dijenguk. ini mahasantri atau masyarakat ? perjelas hablumminannas nya lagi selain ini.</p></div>
+      <div class="note"><p class="note-body">Cek kembali tulisanmu terhadap hasil koreksian editor berikut: daftar pustakamu masih memuat sisa kalimat templat dan artefak asing (hurqalya.ucmerced.edu), ada dua entri yang tidak pernah disitir di badan teks, dan klaim ilmiah tentang siklus sirkadian kamu sandarkan ke blog masjid, bukan sumber ilmiah. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=3&amp;entry.634068761=Maulidiyyah&amp;entry.899447176=Sanah+Ula&amp;entry.218540780=Urgensi+Salat+Subuh+Berjamaah+dan+Manfaatnya%3A+Titik+Temu+Habluminallah+wa+Habluminannas" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-4" data-group="tematik" data-search="muh. muazzinul fajri ilmu faraid: pengertian, dasar hukum, dan pentingnya mempelajarinya dalam islam" data-status="jawab">
+<article class="card" id="tulisan-4" data-group="tematik" data-search="muh. muazzinul fajri ilmu faraid: pengertian, dasar hukum, dan pentingnya mempelajarinya dalam islam" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-4">
     <span class="num" aria-hidden="true">4</span>
     <span class="head-main">
       <span class="author">Muh. Muazzinul Fajri</span>
       <span class="title">Ilmu Faraid: Pengertian, Dasar Hukum, dan Pentingnya Mempelajarinya dalam Islam</span>
       <span class="meta">Sanah Ula · Kajian Tematik</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -308,18 +320,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 4">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">Dampak ke masyarakat apa ?</p></div>
+      <div class="note"><p class="note-body">Cek kembali tulisanmu terhadap hasil koreksian editor berikut: satu entri pustaka, Al-Fiqh al-Islami wa Adillatuhu, tercantum di daftar pustaka tanpa pernah disitir satu kali pun di badan teks, dan sisa label berkas di halaman awal masih terbawa ke naskah. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=4&amp;entry.634068761=Muh.+Muazzinul+Fajri&amp;entry.899447176=Sanah+Ula&amp;entry.218540780=Ilmu+Faraid%3A+Pengertian%2C+Dasar+Hukum%2C+dan+Pentingnya+Mempelajarinya+dalam+Islam" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-5" data-group="tematik" data-search="nur fahmi islamiah hukum transaksi jual beli di dalam masjid: antara fiqih klasik dan fiqih kontemporer (transaksi jual beli online)" data-status="ditolak">
+<article class="card" id="tulisan-5" data-group="tematik" data-search="nur fahmi islamiah hukum penggunaan kecerdasan buatan (artificial intelligence) dalam perspektif fikih kontemporer" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-5">
     <span class="num" aria-hidden="true">5</span>
     <span class="head-main">
       <span class="author">Nur Fahmi Islamiah</span>
-      <span class="title">Hukum Transaksi Jual Beli di Dalam Masjid: Antara Fiqih Klasik dan Fiqih Kontemporer (Transaksi Jual Beli Online)</span>
+      <span class="title">Hukum Penggunaan Kecerdasan Buatan (Artificial Intelligence) dalam Perspektif Fikih Kontemporer</span>
       <span class="meta">Sanah Ula · Kajian Tematik</span>
-      <span class="putusan putusan-ditolak">Ditolak</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -330,14 +342,14 @@
     </section>
   </div>
 </article>
-<article class="card" id="tulisan-6" data-group="tematik" data-search="muhammad fakhri tasawuf sebagai hayatun ruhiyah: kebutuhan fitrah menuju kebahagiaan dunia akhirat" data-status="jawab">
+<article class="card" id="tulisan-6" data-group="tematik" data-search="muhammad fakhri tasawuf sebagai hayatun ruhiyah: kebutuhan fitrah menuju kebahagiaan dunia akhirat" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-6">
     <span class="num" aria-hidden="true">6</span>
     <span class="head-main">
       <span class="author">Muhammad Fakhri</span>
       <span class="title">Tasawuf sebagai Hayatun Ruhiyah: Kebutuhan Fitrah menuju Kebahagiaan Dunia Akhirat</span>
       <span class="meta">Sanah Sani · Kajian Tematik</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -345,19 +357,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 6">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">oke</p></div>
-      <div class="note"><p class="note-body">Tulisan ini dinyatakan oke oleh editor, tetapi pemeriksaan susunan menemukan kekurangan yang wajib kamu jawab sebelum tulisan ini diterbitkan. Pertama, tulisanmu tidak memuat satu pun rujukan: tidak ada daftar pustaka dan tidak ada sumber yang disebut di dalam teks, padahal isinya penuh kutipan ayat, hadis, dan pendapat ulama. Setiap tulisan wajib mempunyai rujukan yang sah, jadi susunlah daftar pustaka dari kitab dan buku yang benar-benar kamu pakai. Kedua, kamu menulis bahwa Rasulullah SAW menyebut perjuangan melawan diri sendiri sebagai jihad yang paling besar. Riwayat jihad akbar ini dinilai lemah oleh para ahli hadis, maka status kelemahannya wajib kamu sebutkan dan jangan disampaikan seolah-olah hadis yang kuat. Ketiga, ucapan tentang belajar fiqih tanpa tasawuf yang kamu tulis sebagai ucapan seorang ulama besar adalah ucapan yang masyhur dinisbatkan kepada Imam Malik. Sebutkan nama beliau dan sumber ucapannya. Jawab ketiganya lewat tombol Balas Catatan.</p></div>
+      <div class="note"><p class="note-body">Tulisan ini dinyatakan oke oleh editor dan isinya diterima, tetapi ada kekurangan yang wajib kamu perbaiki sebelum tulisan ini diterbitkan: tulisan ini tidak memuat daftar pustaka sama sekali, padahal isinya penuh dengan klaim keilmuan. Kamu wajib menambahkan daftar pustaka yang sah dan melengkapi sumber klaim-klaimmu: ucapan masyhur tentang belajar fiqih tanpa tasawuf dan belajar tasawuf tanpa fiqih di penutup bagian F adalah ucapan Imam Malik, jadi sebutkan nama beliau dan sumbernya, jangan dibiarkan sebagai ucapan seorang ulama besar tanpa nama; pernyataan bahwa Rasulullah menyebut perjuangan melawan nafsu sebagai jihad yang paling besar wajib kamu beri takhrij dan keterangan status riwayatnya; klaim tentang tingginya angka depresi, kecemasan, dan kehampaan di negara-negara yang paling kaya secara materi wajib kamu beri sumber data; dan penjelasan para ulama tentang tiga makanan ruh wajib kamu sebutkan nama ulama atau kitabnya. Periksa kembali setiap klaim dalam tulisanmu, lengkapi sumbernya dan susun daftar pustakanya, lalu kumpulkan ulang berkas yang sudah diperbaiki. Kabari lewat tombol Balas Catatan sesudah berkas perbaikan kamu kumpulkan.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=6&amp;entry.634068761=Muhammad+Fakhri&amp;entry.899447176=Sanah+Sani&amp;entry.218540780=Tasawuf+sebagai+Hayatun+Ruhiyah%3A+Kebutuhan+Fitrah+menuju+Kebahagiaan+Dunia+Akhirat" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-7" data-group="tematik" data-search="nur asifah witri hukum memindahkan mayit dari satu negeri ke negeri lain: kajian fiqih perbandingan mazhab dan penerapan kontemporer" data-status="jawab">
+<article class="card" id="tulisan-7" data-group="tematik" data-search="nur asifah witri hukum memindahkan mayit dari satu negeri ke negeri lain: kajian fiqih perbandingan mazhab dan penerapan kontemporer" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-7">
     <span class="num" aria-hidden="true">7</span>
     <span class="head-main">
       <span class="author">Nur Asifah Witri</span>
       <span class="title">Hukum Memindahkan Mayit dari Satu Negeri ke Negeri Lain: Kajian Fiqih Perbandingan Mazhab dan Penerapan Kontemporer</span>
       <span class="meta">Sanah Sani · Kajian Tematik</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -365,18 +376,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 7">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">footnote?<br>okesih , cek footnote</p></div>
+      <div class="note"><p class="note-body">Tulisan ini dinyatakan oke oleh editor dan isinya diterima, tetapi ada kekurangan yang wajib kamu perbaiki sebelum tulisan ini diterbitkan: tulisan ini tidak memuat daftar pustaka, dan isinya adalah olahan dari sebuah teks sumber, yaitu kitab Fiqh an-Nawazil fi al-Ibadat, yang tidak pernah kamu perkenalkan kepada pembaca, padahal di dalam teksmu sendiri ada frasa seperti yang disebutkan dalam teks dan sebagaimana disebutkan di akhir teks. Kamu wajib menyebutkan kitab sumber itu secara terbuka sejak awal tulisan dan menambahkan daftar pustaka. Selain itu, ucapan di penutup yang kamu nisbatkan kepada Imam Malik tidak dikenal sebagai ucapan beliau dalam literatur yang masyhur, jadi wajib kamu periksa kembali sumbernya dan betulkan atribusinya; nukilan pendapat Imam Nawawi dalam Al-Majmu&#x27; dan penjelasan pendapat mazhab juga wajib kamu sandarkan pada nama kitabnya, jangan hanya parafrase tanpa rujukan. Periksa kembali sumber dan atribusi dalam tulisanmu, lengkapi daftar pustakanya, lalu kumpulkan ulang berkas yang sudah diperbaiki. Kabari lewat tombol Balas Catatan sesudah berkas perbaikan kamu kumpulkan.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=7&amp;entry.634068761=Nur+Asifah+Witri&amp;entry.899447176=Sanah+Sani&amp;entry.218540780=Hukum+Memindahkan+Mayit+dari+Satu+Negeri+ke+Negeri+Lain%3A+Kajian+Fiqih+Perbandingan+Mazhab+dan+Penerapan+Kontemporer" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-8" data-group="tematik" data-search="nurafiah perbedaan pendapat ulama mengenai tertib dalam melakukan wudhu" data-status="jawab">
+<article class="card" id="tulisan-8" data-group="tematik" data-search="nurafiah perbedaan pendapat ulama mengenai tertib dalam melakukan wudhu" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-8">
     <span class="num" aria-hidden="true">8</span>
     <span class="head-main">
       <span class="author">Nurafiah</span>
       <span class="title">Perbedaan Pendapat Ulama mengenai Tertib dalam Melakukan Wudhu</span>
       <span class="meta">Sanah Sani · Kajian Tematik</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -384,18 +395,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 8">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">yang rajih menurutmu yang mana ?</p></div>
+      <div class="note"><p class="note-body">Cek kembali tulisanmu terhadap hasil koreksian editor berikut: ada kata rusak di dalam terjemahan QS. Al-Ma&#x27;idah ayat 6 dan salah ketik Arab pada nukilan Ibnu Qudamah, serta belum ada daftar pustaka formal di akhir tulisan. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=8&amp;entry.634068761=Nurafiah&amp;entry.899447176=Sanah+Sani&amp;entry.218540780=Perbedaan+Pendapat+Ulama+mengenai+Tertib+dalam+Melakukan+Wudhu" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-9" data-group="tematik" data-search="jamiah safitri mengenal nasab rasulullah dan relevansinya bagi pembentukan akhlak santri" data-status="jawab">
+<article class="card" id="tulisan-9" data-group="tematik" data-search="jamiah safitri mengenal nasab rasulullah dan relevansinya bagi pembentukan akhlak santri" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-9">
     <span class="num" aria-hidden="true">9</span>
     <span class="head-main">
       <span class="author">Jamiah Safitri</span>
       <span class="title">Mengenal Nasab Rasulullah dan Relevansinya bagi Pembentukan Akhlak Santri</span>
       <span class="meta">Sanah Sani · Kajian Tematik</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -403,18 +414,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 9">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">masih kurang jelas dampak akhlak dari mempelajari nasab nabi apa, kalau sirah nabawiyah masuk akal. bisa mu tambahkan disini kalimat : seberapapun baiknya nasab seseorang, kalau dirinua sendiri tidak mampu memperbaiki dirinya agar sesuai dengan pendahulunya, maka semua nasab itu tidak berguna.</p></div>
+      <div class="note"><p class="note-body">Catatan Editor: Penolakan atas tulisanmu dicabut. Teks terbarumu berjumlah 1.111 kata dan sesudah diperiksa isinya memenuhi syarat: silsilah nasabmu tepat dan setia pada Ar-Rahiq Al-Makhtum, dan relevansi akhlaknya terbangun dari isi. Tinggal lima perbaikan ringan sebelum tulisanmu diterbitkan: 1) pada rincian nasab dari Adnan hingga Ibrahim, nama yang benar Zarih, bukan Zahir; betulkan; 2) pada teks Arab hadis pemilihan nasab tertulis Bani Kitabah dengan huruf ta; yang benar Bani Kinanah dengan huruf nun, dan buang koma Latin yang terselip di dalam teks Arab itu; 3) redaksi hadis lengkap yang kamu kutip itu riwayat At-Tirmidzi nomor 3605; luruskan atribusimu dan catat bahwa redaksi Muslim lebih singkat; 4) lengkapi daftar referensimu: tulis nama pengarang Ar-Rahiq Al-Makhtum beserta penerbit dan tahun terjemahannya, dan hapus tautan SlideShare kitab lain yang tidak kamu pakai di teks; 5) rapikan salah ketik: Ibrahin, seterusnnya, dan koma nyasar sebelum nama Ismail. Kerjakan kelimanya, kumpulkan berkas perbaikanmu ke folder Pengumpulan Naskah kelasmu, lalu kabari lewat tombol Balas Catatan Editor di halaman catatanmu.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=9&amp;entry.634068761=Jamiah+Safitri&amp;entry.899447176=Sanah+Sani&amp;entry.218540780=Mengenal+Nasab+Rasulullah+dan+Relevansinya+bagi+Pembentukan+Akhlak+Santri" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-10" data-group="tematik" data-search="nur asyah sukhal hak-hak maknawi dan kaitannya dengan zakat kontemporer" data-status="jawab">
+<article class="card" id="tulisan-10" data-group="tematik" data-search="nur asyah sukhal hak-hak maknawi dan kaitannya dengan zakat kontemporer" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-10">
     <span class="num" aria-hidden="true">10</span>
     <span class="head-main">
       <span class="author">Nur Asyah Sukhal</span>
       <span class="title">Hak-Hak Maknawi dan Kaitannya dengan Zakat Kontemporer</span>
       <span class="meta">Sanah Sani · Kajian Tematik</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -422,18 +433,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 10">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">cara perhitungan zakatnya bagaimana kalau mau d keluarkan zakatnya? meciptakan solusi zakat ini, tidak selamanya d katakan setiap ada penghasilannya orang  d zakati, bednya dengan pajak apa kalau begitu? masa setiap ada keuntungan d dapat langsung d zakati? belum lagi ada pajak penerbitan dan hak cipta, peran zakat disini apa ? kalau pajak jelas melindungi hak cipta dan sebagainya, zakat ? jatuhnya pemerasan dong kalau seperti itu?</p></div>
+      <div class="note"><p class="note-body">Cek kembali tulisanmu terhadap hasil koreksian editor berikut: ada dua subbab yang sama-sama berhuruf D, dan dua istilah kunci Arabmu tertulis salah eja, yaitu haqq as-sam at-tijariyah dan haqq al-akhtira&#x27;. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=10&amp;entry.634068761=Nur+Asyah+Sukhal&amp;entry.899447176=Sanah+Sani&amp;entry.218540780=Hak-Hak+Maknawi+dan+Kaitannya+dengan+Zakat+Kontemporer" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-11" data-group="tematik" data-search="muh. fadhel alamsyah delapan faedah berharga dari syekh hatim al-asham" data-status="jawab">
+<article class="card" id="tulisan-11" data-group="tematik" data-search="muh. fadhel alamsyah delapan faedah berharga dari syekh hatim al-asham" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-11">
     <span class="num" aria-hidden="true">11</span>
     <span class="head-main">
       <span class="author">Muh. Fadhel Alamsyah</span>
       <span class="title">Delapan Faedah Berharga dari Syekh Hatim al-Asham</span>
       <span class="meta">Sanah Sani · Kajian Tematik</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -441,19 +452,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 11">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">oke</p></div>
-      <div class="note"><p class="note-body">Tulisan ini dinyatakan oke oleh editor, tetapi pemeriksaan susunan menemukan kekurangan yang wajib kamu jawab sebelum tulisan ini diterbitkan. Pertama, tulisanmu tidak mempunyai daftar pustaka sama sekali, padahal seluruh isinya bersumber dari kisah dan nasihat Syekh Hatim al-Asham. Susun daftar pustaka dari kitab yang kamu pakai. Kedua, kamu membuka tulisan dengan menyebut kisah ini disebutkan dalam pembahasan kitab, tetapi kitabnya tidak kamu namai. Sebutkan nama kitab asal kisah Hatim al-Asham itu. Ketiga, hadis pada faedah pertama kamu tulis tanpa sumber. Beri sumber hadis itu: kitabnya dan nomornya bila ada. Jawab ketiganya lewat tombol Balas Catatan.</p></div>
+      <div class="note"><p class="note-body">Tulisan ini dinyatakan oke oleh editor dan isinya diterima, tetapi ada kekurangan yang wajib kamu perbaiki sebelum tulisan ini diterbitkan: tulisan ini tidak memuat daftar pustaka sama sekali, dan kitab sumber kisah Syekh Hatim al-Asham yang menjadi isi seluruh tulisanmu tidak pernah kamu sebutkan namanya, hanya ditulis dalam sebuah kisah yang disebutkan dalam pembahasan kitab. Kamu wajib menyebutkan nama kitab sumber itu dan menambahkan daftar pustaka. Selain itu, hadis panjang pada faedah pertama tampil tanpa takhrij sama sekali dan redaksi Arabnya rusak di beberapa tempat, jadi nukilan Arab itu wajib kamu periksa dan betulkan dari kitab sumbernya serta lengkapi dengan nama kitab atau perawinya. Periksa kembali sumber dan redaksi Arab dalam tulisanmu, lalu kumpulkan ulang berkas yang sudah diperbaiki. Kabari lewat tombol Balas Catatan sesudah berkas perbaikan kamu kumpulkan.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=11&amp;entry.634068761=Muh.+Fadhel+Alamsyah&amp;entry.899447176=Sanah+Sani&amp;entry.218540780=Delapan+Faedah+Berharga+dari+Syekh+Hatim+al-Asham" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-12" data-group="tematik" data-search="nur azizah sulman pemmali dan sennung-sennungeng dalam tradisi bugis: menelusuri jejak dakwah anregurutta h. abdurrahman ambo dalle" data-status="jawab">
+<article class="card" id="tulisan-12" data-group="tematik" data-search="nur azizah sulman pemmali dan sennung-sennungeng dalam tradisi bugis: menelusuri jejak dakwah anregurutta h. abdurrahman ambo dalle" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-12">
     <span class="num" aria-hidden="true">12</span>
     <span class="head-main">
       <span class="author">Nur Azizah Sulman</span>
       <span class="title">Pemmali dan Sennung-Sennungeng dalam Tradisi Bugis: Menelusuri Jejak Dakwah Anregurutta H. Abdurrahman Ambo Dalle</span>
       <span class="meta">Sanah Sani · Kajian Tematik</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -461,18 +471,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 12">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">kisahnya detailkan, d bagian mana gurutta ambo dalle memperlihatkan ini pammali, ini sennu sennuang. jangan sampai kisah fiktif saja</p></div>
+      <div class="note"><p class="note-body">Cek kembali tulisanmu terhadap hasil koreksian editor berikut: terjemahan hadis tentang fa&#x27;l terpotong di tengah, nomor hadis Abu Dawud yang kamu tulis 3411 perlu diluruskan karena penomoran masyhurnya 3910, judul kitab tokoh tidak konsisten antara abstrak dan badan teks, dan masih ada entitas HTML serta ekor tautan pelacak yang harus dibersihkan; bagian sumber rujukanmu juga masih hanya berisi dua tautan, belum menjadi daftar pustaka. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=12&amp;entry.634068761=Nur+Azizah+Sulman&amp;entry.899447176=Sanah+Sani&amp;entry.218540780=Pemmali+dan+Sennung-Sennungeng+dalam+Tradisi+Bugis%3A+Menelusuri+Jejak+Dakwah+Anregurutta+H.+Abdurrahman+Ambo+Dalle" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-13" data-group="tematik" data-search="aidil badiuzzaman said nursi" data-status="jawab">
+<article class="card" id="tulisan-13" data-group="tematik" data-search="aidil badiuzzaman said nursi" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-13">
     <span class="num" aria-hidden="true">13</span>
     <span class="head-main">
       <span class="author">Aidil</span>
       <span class="title">Badiuzzaman Said Nursi</span>
       <span class="meta">Sanah Sani · Kajian Tematik</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -480,18 +490,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 13">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">bagi masyarakat apa manfaatnya ketika mempelajarinya ?</p></div>
+      <div class="note"><p class="note-body">Tulisan ini dinyatakan oke oleh editor dan isinya diterima, tetapi ada kekurangan yang wajib kamu perbaiki sebelum tulisan ini diterbitkan: tahun lahir Badiuzzaman Said Nursi yang kamu tulis 1876 menyelisihi jumhur sumber biografi yang menuliskan 1877, jadi wajib kamu betulkan atau beri keterangan dasar angka yang kamu pakai. Anekdot pidato Gladstone sambil memegang Al-Qur&#x27;an dan klaim seperti Nursi mencapai dalam tiga bulan apa yang dicapai siswa lain dalam sembilan tahun berasal dari tradisi penulisan biografi pengikutnya dan keabsahannya diperselisihkan, jadi wajib kamu beri penanda sumber dan jangan disajikan sebagai fakta yang pasti. Referensi tulisan ini juga belum layak, karena hanya ada dua tautan di akhir berkas yang masih membawa sisa utm_source=chatgpt.com, jadi susunlah daftar pustaka yang benar dari sumber yang kamu pakai. Periksa kembali data dan sumber dalam tulisanmu, perbaiki, lalu kumpulkan ulang berkas yang sudah diperbaiki. Kabari lewat tombol Balas Catatan sesudah berkas perbaikan kamu kumpulkan.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=13&amp;entry.634068761=Aidil&amp;entry.899447176=Sanah+Sani&amp;entry.218540780=Badiuzzaman+Said+Nursi" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-14" data-group="tematik" data-search="hani ar rifai nasir prinsip bisnis rasulullah saw" data-status="ditolak">
+<article class="card" id="tulisan-14" data-group="tematik" data-search="hani ar rifai nasir bahasa arab" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-14">
     <span class="num" aria-hidden="true">14</span>
     <span class="head-main">
       <span class="author">Hani Ar Rifai Nasir</span>
-      <span class="title">Prinsip Bisnis Rasulullah SAW</span>
+      <span class="title">Bahasa Arab</span>
       <span class="meta">Sanah Sani · Kajian Tematik</span>
-      <span class="putusan putusan-ditolak">Ditolak</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -517,18 +527,19 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 15">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">contoh penerapannya dalam kehidupan sehari hari berikan</p></div>
+      <div class="note"><p class="note-body">Cek kembali tulisanmu terhadap hasil koreksian editor berikut: entitas HTML seperti &amp;quot; dan &amp;apos; bocor berulang ke seluruh badan teksmu, dan tulisanmu belum memiliki daftar pustaka. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
     <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=15&amp;entry.634068761=Adri+Anwar&amp;entry.899447176=Sanah+Sani&amp;entry.218540780=Segala+Perbuatan+Tergantung+pada+Niatnya+dan+Menjadi+Pertimbangan+dalam+Ibadah+dan+Kebiasaan" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-16" data-group="tematik" data-search="nadia alfareza yunus kata rasyada dalam al-qur&#x27;an (unsur tematik)" data-status="jawab">
+<article class="card" id="tulisan-16" data-group="tematik" data-search="nadia alfareza yunus kata rasyada dalam al-qur&#x27;an (unsur tematik)" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-16">
     <span class="num" aria-hidden="true">16</span>
     <span class="head-main">
       <span class="author">Nadia Alfareza Yunus</span>
       <span class="title">Kata Rasyada dalam Al-Qur&#x27;an (Unsur Tematik)</span>
       <span class="meta">Sanah Salis · Kajian Tematik</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -536,8 +547,8 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 16">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">siapa tulisan mu ambil?</p></div>
+      <div class="note"><p class="note-body">Tulisan ini dinyatakan oke oleh editor dan isinya diterima, tetapi ada kekurangan yang wajib kamu perbaiki sebelum tulisan ini diterbitkan: atribusi kitab di tulisanmu salah. Tafsir Al-Qurtubi adalah karya Imam al-Qurtubi, bukan karya Wahbah az-Zuhaili, tetapi di daftar pustaka dan di badan teksmu tertulis Wahbah Zuhayli dalam kitab tafsir Al-Qurtubi, jadi kesalahan ini wajib kamu betulkan di kedua tempat itu. Selain itu, pembahasanmu adalah tentang QS. Hud ayat 87, tetapi di dalamnya berulang kali tertulis ayat 190 dan ayat 191 yang merupakan sisa salinan dari naskah tentang ayat lain, jadi wajib kamu hapus dan betulkan. Tafsir Al-Misbah yang kamu kutip di badan teks juga wajib kamu masukkan ke daftar pustaka, dan penjelasan tata bahasa yang menukar isim fa&#x27;il dengan isim maf&#x27;ul pada kata ar-rasyidun wajib kamu luruskan. Periksa kembali atribusi dan data dalam tulisanmu, perbaiki, lalu kumpulkan ulang berkas yang sudah diperbaiki. Kabari lewat tombol Balas Catatan sesudah berkas perbaikan kamu kumpulkan.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=16&amp;entry.634068761=Nadia+Alfareza+Yunus&amp;entry.899447176=Sanah+Salis&amp;entry.218540780=Kata+Rasyada+dalam+Al-Qur%27an+%28Unsur+Tematik%29" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
 <article class="card" id="tulisan-17" data-group="tematik" data-search="arjun penerapan kaidah al-umuru bi maqasidiha dalam kehidupan sehari-hari" data-status="jawab">
@@ -555,18 +566,19 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 17">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">oke<br>lanjutkan ke kaedah selanjutnya</p></div>
+      <div class="note"><p class="note-body">Cek kembali tulisanmu terhadap hasil koreksian editor berikut: tulisanmu belum memiliki daftar pustaka dan tidak ada satu pun kitab qawa&#x27;id yang kamu namai sebagai sandaran pembahasan kaidah, serta penomoran contohmu loncat karena nomor 2 hilang. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
     <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=17&amp;entry.634068761=Arjun&amp;entry.899447176=Sanah+Sani&amp;entry.218540780=Penerapan+Kaidah+al-Umuru+bi+Maqasidiha+dalam+Kehidupan+Sehari-hari" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-18" data-group="tematik" data-search="muh. rezky hidayat maulid nabi muhammad saw dalam pandangan sunnah: kajian terhadap argumen hadis yang digunakan untuk menolak peringatan maulid" data-status="jawab">
+<article class="card" id="tulisan-18" data-group="tematik" data-search="muh. rezky hidayat maulid nabi muhammad saw dalam pandangan sunnah: kajian terhadap argumen hadis yang digunakan untuk menolak peringatan maulid" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-18">
     <span class="num" aria-hidden="true">18</span>
     <span class="head-main">
       <span class="author">Muh. Rezky Hidayat</span>
       <span class="title">Maulid Nabi Muhammad SAW dalam Pandangan Sunnah: Kajian terhadap Argumen Hadis yang Digunakan untuk Menolak Peringatan Maulid</span>
       <span class="meta">Sanah Salis · Kajian Tematik</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -574,18 +586,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 18">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">tambahkan disini kajian hadisnya, kalau hanya memaparkan ada hadis yang d pake menolak maulid saja, tanpa kasi lihat hadis lain yang menjelaskan seruan untuk maulid itu kurang, tambahi itu, karena judul utama mu maulid dalam pandangan sunnah, berarti harus ada dalil dari sunnahnya.</p></div>
+      <div class="note"><p class="note-body">Cek kembali tulisanmu terhadap hasil koreksian editor berikut: tulisanmu belum memiliki daftar pustaka, atribusi hadis pertamamu belum lengkap karena hadis itu muttafaq &#x27;alaih, dan sumber serta nomor hadis kedua belum pernah kamu cantumkan sampai akhir tulisan. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=18&amp;entry.634068761=Muh.+Rezky+Hidayat&amp;entry.899447176=Sanah+Salis&amp;entry.218540780=Maulid+Nabi+Muhammad+SAW+dalam+Pandangan+Sunnah%3A+Kajian+terhadap+Argumen+Hadis+yang+Digunakan+untuk+Menolak+Peringatan+Maulid" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-19" data-group="esai" data-search="fitriani dari lisan ke perbuatan: hakikat mahabbah kepada rasulullah" data-status="jawab">
+<article class="card" id="tulisan-19" data-group="esai" data-search="fitriani dari lisan ke perbuatan: hakikat mahabbah kepada rasulullah" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-19">
     <span class="num" aria-hidden="true">19</span>
     <span class="head-main">
       <span class="author">Fitriani</span>
       <span class="title">Dari Lisan ke Perbuatan: Hakikat Mahabbah kepada Rasulullah</span>
       <span class="meta">Sanah Ula · Esai dan Refleksi</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -593,9 +605,8 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 19">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">oke</p></div>
-      <div class="note"><p class="note-body">Tulisan ini dinyatakan oke oleh editor dan isinya diterima, tetapi ada satu kekurangan teknis yang wajib kamu perbaiki sebelum tulisan ini diterbitkan: teks Arab di dalam berkas aslimu rusak. Kutipan Arabnya tampil berantakan, huruf dan susunannya tidak terbaca sebagaimana mestinya. Periksa kembali setiap kutipan Arab di berkasmu, betulkan dari kitab sumbernya, lalu kumpulkan ulang berkas yang sudah diperbaiki. Kabari lewat tombol Balas Catatan sesudah berkas perbaikan kamu kumpulkan.</p></div>
+      <div class="note"><p class="note-body">Tulisan ini dinyatakan oke oleh editor dan isinya diterima, tetapi ada kekurangan yang wajib kamu perbaiki sebelum tulisan ini diterbitkan: tulisanmu tidak memiliki daftar pustaka sama sekali, dan seluruh kutipan Arab di dalam berkasmu rusak sehingga tidak terbaca sebagaimana mestinya. Kamu wajib menambahkan daftar pustaka di akhir tulisan yang memuat kitab dan sumber yang kamu pakai, memperbaiki setiap kutipan Arab (antara lain QS. Al-Ahzab ayat 21 dan hadis-hadis tentang mahabbah) dari kitab sumbernya sampai terbaca benar, menyebutkan nama ulama atau kitab di balik definisi "para ulama mengatakan: al-mahabbah hiya al-ittiba&#x27;" yang sekarang masih anonim, dan memberi sumber pada ucapan Imam Hasan Al-Bashri yang kamu kutip. Periksa kembali seluruh tulisanmu, lalu kumpulkan ulang berkas yang sudah diperbaiki. Kabari lewat tombol Balas Catatan sesudah berkas perbaikan kamu kumpulkan.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=19&amp;entry.634068761=Fitriani&amp;entry.899447176=Sanah+Ula&amp;entry.218540780=Dari+Lisan+ke+Perbuatan%3A+Hakikat+Mahabbah+kepada+Rasulullah" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
 <article class="card" id="tulisan-20" data-group="esai" data-search="salwa hafidzah meneladani adab buang hajat: refleksi kesucian, kesehatan, dan rasa malu dalam islam" data-status="jawab">
@@ -613,7 +624,7 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 20">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">oke</p></div>
-      <div class="note"><p class="note-body">Tulisan ini dinyatakan oke oleh editor, tetapi pemeriksaan susunan menemukan kekurangan yang wajib kamu jawab sebelum tulisan ini diterbitkan. Pertama, klaim-klaim faktual di tulisanmu bertumpu pada satu kitab saja tanpa takhrij dalil. Setiap dalil yang menjadi dasar hukum wajib kamu telusuri sumber aslinya: kitab hadisnya, nomornya, dan statusnya, jangan cukup dari satu kitab perantara. Kedua, porsi refleksi pribadimu masih kurang. Judul tulisanmu menjanjikan refleksi tentang kesucian, kesehatan, dan rasa malu, jadi tambahkan renunganmu sendiri yang lebih panjang, bukan hanya memaparkan keterangan kitab. Jawab keduanya lewat tombol Balas Catatan.</p></div>
+      <div class="note"><p class="note-body">Tulisan ini dinyatakan oke oleh editor dan isinya diterima, tetapi ada kekurangan yang wajib kamu perbaiki sebelum tulisan ini diterbitkan: hampir semua isi tulisanmu bertumpu pada satu kitab, tetapi sumber-sumbernya tidak kamu sebutkan dengan lengkap. Kamu wajib menyebutkan nama pengarang dan edisi kitab "Al-Adabu lin-Nasyiatil Islamiyyah" yang menjadi tumpuan tulisanmu dan menyusun daftar pustaka di akhir tulisan, membetulkan redaksi doa keluar dari tempat buang hajat dari sumber hadisnya (redaksi yang masyhur adalah "Ghufraanaka" atau "Alhamdulillahilladzi adzhaba &#x27;annil adzaa wa &#x27;aafaanii") dan memberi takhrij padanya, memberi rujukan kitab pada atsar Abu Bakar Ash-Shiddiq tentang menutupi kepala karena malu kepada Allah, menyebutkan sumber dua hadis inti yang sekarang hanya kamu parafrasekan (hadis dua orang buang hajat sambil berbicara diriwayatkan Abu Dawud; hadis dua kubur yang penghuninya disiksa karena tidak bersih dari kencing diriwayatkan Bukhari dan Muslim), dan memberi rujukan pada klaim medismu tentang zat sisa yang tertahan menjadi racun, atau melunakkan klaim itu. Periksa kembali seluruh tulisanmu, lalu kumpulkan ulang berkas yang sudah diperbaiki. Kabari lewat tombol Balas Catatan sesudah berkas perbaikan kamu kumpulkan.</p></div>
     </section>
     <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=20&amp;entry.634068761=Salwa+Hafidzah&amp;entry.899447176=Sanah+Ula&amp;entry.218540780=Meneladani+Adab+Buang+Hajat%3A+Refleksi+Kesucian%2C+Kesehatan%2C+dan+Rasa+Malu+dalam+Islam" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
@@ -654,14 +665,14 @@
     </section>
   </div>
 </article>
-<article class="card" id="tulisan-23" data-group="esai" data-search="andi afrah akmalia lebih dari sekadar gelar: perguruan tinggi dalam membentuk manusia dan menyongsong masa depan" data-status="jawab">
+<article class="card" id="tulisan-23" data-group="esai" data-search="andi afrah akmalia lebih dari sekadar gelar: perguruan tinggi dalam membentuk manusia dan menyongsong masa depan" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-23">
     <span class="num" aria-hidden="true">23</span>
     <span class="head-main">
       <span class="author">Andi Afrah Akmalia</span>
       <span class="title">Lebih dari Sekadar Gelar: Perguruan Tinggi dalam Membentuk Manusia dan Menyongsong Masa Depan</span>
       <span class="meta">Sanah Salis · Esai dan Refleksi</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -669,19 +680,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 23">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">oke</p></div>
-      <div class="note"><p class="note-body">Tulisan ini dinyatakan oke oleh editor. Isinya menggali kalimat dua tokoh yang kamu sebut namanya, Prof. Dr. Sholeh Ahmad Abdul Wahab Abdul Qawi dan Anregurutta Prof. Dr. H. Muhammad Faried Wajdy, jadi tulisanmu pada dasarnya adalah catatan seminar dan tidak ditolak. Satu syarat yang wajib kamu jawab sebelum diterbitkan: tegaskan bingkai catatan seminar itu di awal tulisan. Tuliskan keterangan acaranya di bagian pembuka: nama acaranya, kapan dan di mana diselenggarakan, dan siapa pematerinya, supaya pembaca langsung paham bahwa isi tulisan ini adalah catatan dari seminar tersebut. Jawab lewat tombol Balas Catatan.</p></div>
+      <div class="note"><p class="note-body">Cek kembali tulisanmu terhadap hasil koreksian editor berikut: masih ada sisa perabot salin-tempel di naskahmu, yaitu angka 730257620000 dan rangkaian left338455, hadis innama bu&#x27;itstu mu&#x27;alliman belum kamu beri takhrij, dan tulisanmu belum memiliki daftar pustaka. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=23&amp;entry.634068761=Andi+Afrah+Akmalia&amp;entry.899447176=Sanah+Salis&amp;entry.218540780=Lebih+dari+Sekadar+Gelar%3A+Perguruan+Tinggi+dalam+Membentuk+Manusia+dan+Menyongsong+Masa+Depan" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-24" data-group="esai" data-search="nurhayati doa yang belum terkabul" data-status="ditolak">
+<article class="card" id="tulisan-24" data-group="esai" data-search="nurhayati doa yang belum terkabul" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-24">
     <span class="num" aria-hidden="true">24</span>
     <span class="head-main">
       <span class="author">Nurhayati</span>
       <span class="title">Doa yang Belum Terkabul</span>
       <span class="meta">Sanah Salis · Esai dan Refleksi</span>
-      <span class="putusan putusan-ditolak">Ditolak</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -692,14 +702,14 @@
     </section>
   </div>
 </article>
-<article class="card" id="tulisan-25" data-group="kajian-kitab" data-search="arika pengajian subuh: tarbiyatul aulad, bab tanggung jawab pendidikan akhlak" data-status="foto">
+<article class="card" id="tulisan-25" data-group="kajian-kitab" data-search="arika pengajian subuh: tarbiyatul aulad, bab tanggung jawab pendidikan akhlak" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-25">
     <span class="num" aria-hidden="true">25</span>
     <span class="head-main">
       <span class="author">Arika</span>
       <span class="title">Pengajian Subuh: Tarbiyatul Aulad, Bab Tanggung Jawab Pendidikan Akhlak</span>
       <span class="meta">Sanah Ula · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-foto">Diterima bersyarat · sisa masukkan foto</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -707,18 +717,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 25">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">Foto lampirkan d googler drive berikut: <a href="https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr" target="_blank" rel="noopener noreferrer">https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr</a></p></div>
+      <div class="note"><p class="note-body">Tulisan ini dinyatakan oke oleh editor dan isinya diterima. Kedudukan tulisanmu jelas: ini susunan pengajian atas materi Gurutta Musawwir yang kamu susun sendiri, jadi tulisan ini bukan jiplakan. Yang wajib kamu perbaiki sebelum tulisan ini diterbitkan adalah penanda dan ketelitian datanya: blok tulisan panjang di bagian C yang berregister artikel jurnal wajib kamu beri tanda kutip atau catatan jelas bahwa itu nukilan dari sebuah publikasi, sitasi "(Al-Maraghi, 1993)" dan "(Indra, Yusuf, &amp; Jamna, 2015)" yang sekarang menggantung wajib kamu lengkapi dengan daftar pustaka di akhir tulisan, nomor halaman Al-Maraghi untuk pembahasan QS. An-Nisa ayat 9 yang bertentangan di dua tempat (halaman 110 dan halaman 344) wajib kamu betulkan salah satunya dari kitabnya, pasangan tanggal di kepala naskah (14 Jumadil Awal 1448 dan 25 Agustus 2026) tidak sepadan dan salah satunya wajib kamu betulkan, nama kitab sumber pengajian wajib kamu sebutkan (yang tampil sekarang hanya judul bab Arabnya), dan hadis panjang riwayat Ibnu Hibban di bagian B wajib kamu beri catatan sumber dan statusnya. Periksa kembali seluruh tulisanmu, lalu kumpulkan ulang berkas yang sudah diperbaiki. Kabari lewat tombol Balas Catatan sesudah berkas perbaikan kamu kumpulkan.</p></div>
     </section>
-    <a class="upload-btn" href="https://drive.google.com/drive/folders/1g7ucFocySZQ_KOxEc9Me7gaQDXm_v7Xt" target="_blank" rel="noopener noreferrer">Upload Foto</a>
   </div>
 </article>
-<article class="card" id="tulisan-26" data-group="kajian-kitab" data-search="musfirah hikmah dakwah dalam peristiwa haditsul ifki" data-status="jawab">
+<article class="card" id="tulisan-26" data-group="kajian-kitab" data-search="musfirah hikmah dakwah dalam peristiwa haditsul ifki" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-26">
     <span class="num" aria-hidden="true">26</span>
     <span class="head-main">
       <span class="author">Musfirah</span>
       <span class="title">Hikmah Dakwah dalam Peristiwa Haditsul Ifki</span>
       <span class="meta">Sanah Ula · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -726,18 +736,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 26">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">ini tulisannya dr aydi atau tulisan mu ?<br>Foto lampirkan d googler drive berikut: <a href="https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr" target="_blank" rel="noopener noreferrer">https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr</a></p></div>
+      <div class="note"><p class="note-body">Cek kembali tulisanmu terhadap hasil koreksian editor berikut: bagian Tujuan Pengajianmu masih memakai teks templat generik yang hanya sebagian nyambung dengan topik Haditsul Ifki, dan nama serta gelar pemateri sebagaimana tertulis perlu kamu pastikan kembali ejaannya. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=26&amp;entry.634068761=Musfirah&amp;entry.899447176=Sanah+Ula&amp;entry.218540780=Hikmah+Dakwah+dalam+Peristiwa+Haditsul+Ifki" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-27" data-group="kajian-kitab" data-search="m. alfin al mubarok keutamaan shalat subuh berjamaah pada hari jumat dan amalan-amalan sunnah di hari jumat" data-status="jawab">
+<article class="card" id="tulisan-27" data-group="kajian-kitab" data-search="m. alfin al mubarok keutamaan shalat subuh berjamaah pada hari jumat dan amalan-amalan sunnah di hari jumat" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-27">
     <span class="num" aria-hidden="true">27</span>
     <span class="head-main">
       <span class="author">M. Alfin Al Mubarok</span>
       <span class="title">Keutamaan Shalat Subuh Berjamaah pada Hari Jumat dan Amalan-Amalan Sunnah di Hari Jumat</span>
       <span class="meta">Sanah Ula · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -745,8 +755,8 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 27">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">perjelas anregurutta mangkoso ini siapa.<br>Foto lampirkan d googler drive berikut: <a href="https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr" target="_blank" rel="noopener noreferrer">https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr</a></p></div>
+      <div class="note"><p class="note-body">Tulisan ini dinyatakan oke oleh editor dan isinya diterima, tetapi ada kekurangan yang wajib kamu perbaiki sebelum tulisan ini diterbitkan: sejumlah dalil di tulisanmu tampil tanpa takhrij dan tanpa keterangan status. Yang paling penting: hadis membaca shalawat 80 kali sesudah Ashar Jumat dengan janji ampunan dosa 80 tahun tidak boleh tampil sebagai sabda polos, karena hadis ini dinilai dhaif jiddan bahkan munkar oleh para ahli hadis (Ibnu Hajar dalam Lisan al-Mizan; al-Albani dalam Silsilah adh-Dha&#x27;ifah no. 3804); kamu wajib memberi takhrij dan keterangan statusnya, atau menghapus janji angka itu. Kamu juga wajib menyebutkan nama kitab sumber nukilanmu (blok-blok prosa Arab yang kamu salin sekarang tidak jelas berasal dari kitab apa dan ucapan siapa), membersihkan sisa rujukan internal kitab asal seperti frasa "sebagaimana hadis Abu Hurairah yang telah lalu", memberi sumber dan status pada atsar "Shalat Jumat adalah hari raya bagi orang-orang fakir", memberi takhrij pada hadis pembuka tentang keutamaan shalat Subuh berjamaah pada hari Jumat (diriwayatkan al-Baihaqi dalam Syu&#x27;ab al-Iman), menyebutkan nama ulama di balik pendapat bahwa shalat Subuh adalah shalat wustha, dan menambahkan daftar pustaka di akhir tulisan. Periksa kembali seluruh tulisanmu, lalu kumpulkan ulang berkas yang sudah diperbaiki. Kabari lewat tombol Balas Catatan sesudah berkas perbaikan kamu kumpulkan.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=27&amp;entry.634068761=M.+Alfin+Al+Mubarok&amp;entry.899447176=Sanah+Ula&amp;entry.218540780=Keutamaan+Shalat+Subuh+Berjamaah+pada+Hari+Jumat+dan+Amalan-Amalan+Sunnah+di+Hari+Jumat" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
 <article class="card" id="tulisan-28" data-group="kajian-kitab" data-search="wulan sari perbaiki perahumu karena lautan itu dalam: membedah 4 wasiat rasulullah kepada abu dzar al-ghifari dalam kitab nashaihul ibad" data-status="publish">
@@ -767,14 +777,14 @@
     </section>
   </div>
 </article>
-<article class="card" id="tulisan-29" data-group="kajian-kitab" data-search="miftahul ginayah waktu terlarang untuk salat: telaah fikih atas perbedaan pendapat ulama" data-status="jawab">
+<article class="card" id="tulisan-29" data-group="kajian-kitab" data-search="miftahul ginayah waktu terlarang untuk salat: telaah fikih atas perbedaan pendapat ulama" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-29">
     <span class="num" aria-hidden="true">29</span>
     <span class="head-main">
       <span class="author">Miftahul Ginayah</span>
       <span class="title">Waktu Terlarang untuk Salat: Telaah Fikih atas Perbedaan Pendapat Ulama</span>
       <span class="meta">Sanah Sani · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -782,18 +792,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 29">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">Perkaya nanti dengan footnote</p></div>
+      <div class="note"><p class="note-body">Cek kembali tulisanmu terhadap hasil koreksian editor berikut: entitas HTML &amp;quot; bocor di dua terjemahan hadis dalam naskahmu, dan belum ada daftar pustaka formal di akhir tulisan walaupun kitab-kitabmu sudah disebut di badan teks. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=29&amp;entry.634068761=Miftahul+Ginayah&amp;entry.899447176=Sanah+Sani&amp;entry.218540780=Waktu+Terlarang+untuk+Salat%3A+Telaah+Fikih+atas+Perbedaan+Pendapat+Ulama" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-30" data-group="kajian-kitab" data-search="muhammad syarif pandangan anregurutta terhadap peringatan maulid nabi muhammad saw" data-status="jawab">
+<article class="card" id="tulisan-30" data-group="kajian-kitab" data-search="muhammad syarif pandangan anregurutta terhadap peringatan maulid nabi muhammad saw" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-30">
     <span class="num" aria-hidden="true">30</span>
     <span class="head-main">
       <span class="author">Muhammad Syarif</span>
       <span class="title">Pandangan Anregurutta terhadap Peringatan Maulid Nabi Muhammad SAW</span>
       <span class="meta">Sanah Sani · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -801,18 +811,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 30">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">jangan terlalu banyak kalimatmu, perkaya ini dengan kutipan asli gurutta, dan perjelas anregurutta mangkoso dsini siapa ? sertakan fotonya disini: <a href="https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr" target="_blank" rel="noopener noreferrer">https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr</a></p></div>
+      <div class="note"><p class="note-body">Tulisan ini dinyatakan oke oleh editor dan isinya diterima, tetapi ada kekurangan yang wajib kamu perbaiki sebelum tulisan ini diterbitkan: angka persentase di tulisanmu disajikan sebagai data pasti padahal tidak ada sumber terukurnya. Pernyataan bahwa Sunnah Qauliyah memenuhi sekitar 90 persen kitab-kitab hadis dan Sunnah Fi&#x27;liyah sekitar 10 persen adalah perkiraan retoris pemateri; kamu wajib memberi penanda jelas bahwa itu perkiraan, atau menghapus angka itu. Kamu juga wajib menghapus rangkaian angka yatim "-228600-79378300" yang berdiri sendiri di kepala naskah, melengkapi lampiran bagian kedua yang memakai penanda sitasi [1] sampai [12] dengan daftar rujukannya (atau menggabungkannya secara rapi ke badan tulisan), membetulkan salah ketik subjudul "Kasus Ketika" menjadi "Kasus Ketiga", dan menambahkan daftar pustaka di akhir tulisan. Periksa kembali seluruh tulisanmu, lalu kumpulkan ulang berkas yang sudah diperbaiki. Kabari lewat tombol Balas Catatan sesudah berkas perbaikan kamu kumpulkan.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=30&amp;entry.634068761=Muhammad+Syarif&amp;entry.899447176=Sanah+Sani&amp;entry.218540780=Pandangan+Anregurutta+terhadap+Peringatan+Maulid+Nabi+Muhammad+SAW" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-31" data-group="kajian-kitab" data-search="umar s. dan rezky perbedaan pendapat ulama soal hukum shalat berjamaah: mengapa ada 27 dan 25 derajat" data-status="jawab">
+<article class="card" id="tulisan-31" data-group="kajian-kitab" data-search="umar s. dan rezky perbedaan pendapat ulama soal hukum shalat berjamaah: mengapa ada 27 dan 25 derajat" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-31">
     <span class="num" aria-hidden="true">31</span>
     <span class="head-main">
       <span class="author">Umar S. dan Rezky</span>
       <span class="title">Perbedaan Pendapat Ulama soal Hukum Shalat Berjamaah: Mengapa Ada 27 dan 25 Derajat</span>
       <span class="meta">Sanah Sani · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -820,19 +830,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 31">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">oke</p></div>
-      <div class="note"><p class="note-body">Tulisan ini dinyatakan oke oleh editor, tetapi pemeriksaan susunan menemukan kekeliruan inti yang wajib kamu jawab sebelum tulisan ini diterbitkan. Pertama, soal angka derajat: kamu menulis pahala shalat berjamaah terpaut 27 derajat secara umum. Menurut pemeriksaan, derajat 27 berlaku untuk shalat berjamaah di masjid, sedangkan shalat berjamaah di luar masjid derajatnya 25. Betulkan dan jelaskan pembagian ini di dalam tulisanmu. Kedua, tujuh pendapat ulama yang kamu paparkan tentang perbedaan 27 dan 25 derajat tidak kamu sebut nama ulamanya satu per satu. Lengkapi setiap pendapat dengan nama ulama yang mengatakannya dan sumbernya. Jawab keduanya lewat tombol Balas Catatan.</p></div>
+      <div class="note"><p class="note-body">Tulisan ini dinyatakan oke oleh editor dan isinya diterima, tetapi ada kekurangan yang wajib kamu perbaiki sebelum tulisan ini diterbitkan: penjelasan inti tulisanmu justru bertentangan di dalam teks sendiri. Pada poin kedua kamu menulis shalat bardain berkeutamaan 27 derajat sedangkan shalat di luar itu juga 27 derajat; sisi kedua itu mestinya 25 derajat, dan kalimat itu wajib kamu betulkan karena perbedaan 27 dan 25 itulah pokok bahasan tulisanmu. Kamu juga wajib menyebutkan nama ulama atau kitab syarah di balik tujuh pendapat penjelas perbedaan 27 dan 25 derajat, yang sekarang semuanya hanya dinisbatkan secara umum seperti "sebagian ulama berpendapat"; ikatkan pendapat-pendapat itu ke kitab kajiannya (Subulussalam karya ash-Shan&#x27;ani) atau syarah lain yang memang kamu pakai. Paragraf-paragraf "Syarah Luas" yang merupakan penjelasanmu sendiri wajib kamu beri penanda jelas sebagai penjelasan penulis agar batas antara isi kitab dan karanganmu tidak kabur, huruf Latin yang menyusup di tengah kata Arab pada hadis langkah kaki wajib kamu bersihkan, dan daftar pustaka wajib kamu tambahkan di akhir tulisan. Periksa kembali seluruh tulisanmu, lalu kumpulkan ulang berkas yang sudah diperbaiki. Kabari lewat tombol Balas Catatan sesudah berkas perbaikan kamu kumpulkan.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=31&amp;entry.634068761=Umar+S.+dan+Rezky&amp;entry.899447176=Sanah+Sani&amp;entry.218540780=Perbedaan+Pendapat+Ulama+soal+Hukum+Shalat+Berjamaah%3A+Mengapa+Ada+27+dan+25+Derajat" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-32" data-group="kajian-kitab" data-search="hartiana hukum memindahkan jenazah dari satu negeri ke negeri lain" data-status="ditolak">
+<article class="card" id="tulisan-32" data-group="kajian-kitab" data-search="hartiana hukum memindahkan jenazah dari satu negeri ke negeri lain" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-32">
     <span class="num" aria-hidden="true">32</span>
     <span class="head-main">
       <span class="author">Hartiana</span>
       <span class="title">Hukum Memindahkan Jenazah dari Satu Negeri ke Negeri Lain</span>
       <span class="meta">Sanah Sani · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-ditolak">Ditolak</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -843,14 +852,14 @@
     </section>
   </div>
 </article>
-<article class="card" id="tulisan-33" data-group="kajian-kitab" data-search="arham riya dalam pandangan islam" data-status="jawab">
+<article class="card" id="tulisan-33" data-group="kajian-kitab" data-search="arham riya dalam pandangan islam" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-33">
     <span class="num" aria-hidden="true">33</span>
     <span class="head-main">
       <span class="author">Arham</span>
       <span class="title">Riya dalam Pandangan Islam</span>
       <span class="meta">Sanah Sani · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -858,18 +867,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 33">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">siapa ini ammar ihsan ?</p></div>
+      <div class="note"><p class="note-body">Cek kembali tulisanmu terhadap hasil koreksian editor berikut: ada kata sisa tata letak lefttop di blok kepala naskahmu, kamu menyatakan keharaman riya telah dijelaskan dalam Al-Qur&#x27;an, hadis, serta perkataan sahabat dan ulama, tetapi tidak ada satu pun dalil yang kamu kutip atau namai di seluruh naskah, dan tulisanmu belum memiliki daftar pustaka. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=33&amp;entry.634068761=Arham&amp;entry.899447176=Sanah+Sani&amp;entry.218540780=Riya+dalam+Pandangan+Islam" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-34" data-group="kajian-kitab" data-search="andi muhammad faried rizki keutamaan nabi muhammad atas para nabi: telaah atas pembahasan al-&#x27;izz bin &#x27;abdussalam" data-status="foto">
+<article class="card" id="tulisan-34" data-group="kajian-kitab" data-search="andi muhammad faried rizki keutamaan nabi muhammad atas para nabi: telaah atas pembahasan al-&#x27;izz bin &#x27;abdussalam" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-34">
     <span class="num" aria-hidden="true">34</span>
     <span class="head-main">
       <span class="author">Andi Muhammad Faried Rizki</span>
       <span class="title">Keutamaan Nabi Muhammad atas Para Nabi: Telaah atas Pembahasan Al-&#x27;Izz bin &#x27;Abdussalam</span>
       <span class="meta">Sanah Sani · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-foto">Diterima bersyarat · sisa masukkan foto</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -878,17 +887,16 @@
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">oje, kajian kitab.</p></div>
     </section>
-    <a class="upload-btn" href="https://drive.google.com/drive/folders/1z_cxrO9kdnHqWfblAEHvAhfhUMxxrAnv" target="_blank" rel="noopener noreferrer">Upload Foto</a>
   </div>
 </article>
-<article class="card" id="tulisan-35" data-group="kajian-kitab" data-search="naura marhamah ramadhani pengajian sirah nabawiyah: fiqhus sirah an-nabawiyah" data-status="jawab">
+<article class="card" id="tulisan-35" data-group="kajian-kitab" data-search="naura marhamah ramadhani menggali hikmah dan fikih di balik perjalanan rasulullah" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-35">
     <span class="num" aria-hidden="true">35</span>
     <span class="head-main">
       <span class="author">Naura Marhamah Ramadhani</span>
-      <span class="title">Pengajian Sirah Nabawiyah: Fiqhus Sirah an-Nabawiyah</span>
+      <span class="title">Menggali Hikmah dan fikih di balik perjalanan Rasulullah</span>
       <span class="meta">Sanah Sani · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -896,18 +904,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 35">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">perjelas judulnya, ini judul atau apa ? yang d kaji kitabnya syekh buti atau hasil pengajiaannya ust agus?</p></div>
+      <div class="note"><p class="note-body">Tulisan ini dinyatakan oke oleh editor dan isinya diterima, tetapi ada kekurangan yang wajib kamu perbaiki sebelum tulisan ini diterbitkan: sebagian teks Arab dan data kisah di tulisanmu keliru. Judul subbab Arabmu rusak menjadi frasa yang tidak bermakna (di dalamnya muncul kata "al-hammam", kamar mandi, yang merusak maksud istinbath hikmah); kutipan Arab itu wajib kamu tulis ulang dari kitab Fiqhus Sirah an-Nabawiyah. Sisa markup yang bocor ke teks, seperti entitas "&amp;quot;" yang berulang dan fragmen "\mj" di tengah kalimat, wajib kamu bersihkan. Kisah pemasangan Hajar Aswad juga wajib kamu luruskan: gelar al-Amin telah melekat pada Rasulullah sebelum peristiwa renovasi Ka&#x27;bah itu, jadi peristiwa tersebut menguatkan gelar beliau, bukan saat beliau diberi gelar. Terakhir, tambahkan daftar pustaka di akhir tulisan; kitab dan pengarangnya sudah kamu sebut di pendahuluan, lengkapi keterangan edisinya. Periksa kembali seluruh tulisanmu, lalu kumpulkan ulang berkas yang sudah diperbaiki. Kabari lewat tombol Balas Catatan sesudah berkas perbaikan kamu kumpulkan.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=35&amp;entry.634068761=Naura+Marhamah+Ramadhani&amp;entry.899447176=Sanah+Sani&amp;entry.218540780=Pengajian+Sirah+Nabawiyah%3A+Fiqhus+Sirah+an-Nabawiyah" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-36" data-group="kajian-kitab" data-search="ihsan fadil dialektika syariat, hakikat, dan ilmu batin" data-status="jawab">
+<article class="card" id="tulisan-36" data-group="kajian-kitab" data-search="ihsan fadil dialektika syariat, hakikat, dan ilmu batin" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-36">
     <span class="num" aria-hidden="true">36</span>
     <span class="head-main">
       <span class="author">Ihsan Fadil</span>
       <span class="title">Dialektika Syariat, Hakikat, dan Ilmu Batin</span>
       <span class="meta">Sanah Salis · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -915,18 +923,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 36">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">oke. upload fotonya d link ini: <a href="https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr" target="_blank" rel="noopener noreferrer">https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr</a></p></div>
+      <div class="note"><p class="note-body">Cek kembali tulisanmu terhadap hasil koreksian editor berikut: nama Imam Al-Qusyairi tertulis tidak konsisten di dalam naskahmu, kutipan bahasa Inggris dari William Stoddart belum kamu cantumkan judul buku dan halamannya, doa yang dalam literatur dinisbatkan kepada Rabi&#x27;ah al-Adawiyah kamu kutip tanpa nama dan sumber, judul kitab kajianmu belum pasti ejaannya, dan tulisanmu belum memiliki daftar pustaka. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=36&amp;entry.634068761=Ihsan+Fadil&amp;entry.899447176=Sanah+Salis&amp;entry.218540780=Dialektika+Syariat%2C+Hakikat%2C+dan+Ilmu+Batin" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-37" data-group="kajian-kitab" data-search="dzulkifli prinsip-prinsip persaudaraan menurut syariat islam" data-status="jawab">
+<article class="card" id="tulisan-37" data-group="kajian-kitab" data-search="dzulkifli prinsip-prinsip persaudaraan menurut syariat islam" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-37">
     <span class="num" aria-hidden="true">37</span>
     <span class="head-main">
       <span class="author">Dzulkifli</span>
       <span class="title">Prinsip-Prinsip Persaudaraan menurut Syariat Islam</span>
       <span class="meta">Sanah Salis · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -934,18 +942,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 37">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">tambahkan menurut syekh samsuddin bla bla bla. sertakan fotonya: <a href="https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr" target="_blank" rel="noopener noreferrer">https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr</a></p></div>
+      <div class="note"><p class="note-body">Cek kembali tulisanmu terhadap hasil koreksian editor berikut: kitab pengajianmu hanya kamu sebut judul Arabnya tanpa nama pengarang, dan tulisanmu belum memiliki daftar pustaka. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=37&amp;entry.634068761=Dzulkifli&amp;entry.899447176=Sanah+Salis&amp;entry.218540780=Prinsip-Prinsip+Persaudaraan+menurut+Syariat+Islam" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-38" data-group="kajian-kitab" data-search="imran hikmah kebahasaan dan pelajaran keimanan dalam surah al-hasyr" data-status="foto">
+<article class="card" id="tulisan-38" data-group="kajian-kitab" data-search="imran hikmah kebahasaan dan pelajaran keimanan dalam surah al-hasyr" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-38">
     <span class="num" aria-hidden="true">38</span>
     <span class="head-main">
       <span class="author">Imran</span>
       <span class="title">Hikmah Kebahasaan dan Pelajaran Keimanan dalam Surah Al-Hasyr</span>
       <span class="meta">Sanah Salis · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-foto">Diterima bersyarat · sisa masukkan foto</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -954,17 +962,16 @@
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">fotonya, lampirkan disini: <a href="https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr" target="_blank" rel="noopener noreferrer">https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr</a></p></div>
     </section>
-    <a class="upload-btn" href="https://drive.google.com/drive/folders/1gZXF7RNKNNBmCYEt_4HrJSVNJlSsnc2_" target="_blank" rel="noopener noreferrer">Upload Foto</a>
   </div>
 </article>
-<article class="card" id="tulisan-39" data-group="kajian-kitab" data-search="imran ni&#x27;mat asy-syukr wa syukr an-ni&#x27;mah" data-status="jawab">
+<article class="card" id="tulisan-39" data-group="kajian-kitab" data-search="imran ni&#x27;mat asy-syukr wa syukr an-ni&#x27;mah" data-status="selesai">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-39">
     <span class="num" aria-hidden="true">39</span>
     <span class="head-main">
       <span class="author">Imran</span>
       <span class="title">Ni&#x27;mat asy-Syukr wa Syukr an-Ni&#x27;mah</span>
       <span class="meta">Sanah Salis · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-selesai">Selesai atas ketetapan dosen</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -973,17 +980,16 @@
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">ini kajian kitab kah, essai biasakah, atau apa?</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=39&amp;entry.634068761=Imran&amp;entry.899447176=Sanah+Salis&amp;entry.218540780=Ni%27mat+asy-Syukr+wa+Syukr+an-Ni%27mah" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-40" data-group="kajian-kitab" data-search="sitti mardhiyyah riya&#x27; menurut al-ghazali dalam mau&#x27;izhah al-mu&#x27;minin" data-status="foto">
+<article class="card" id="tulisan-40" data-group="kajian-kitab" data-search="sitti mardhiyyah membedah riya’ dan tingkatannya dalam mau’izhah al-mu’minin" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-40">
     <span class="num" aria-hidden="true">40</span>
     <span class="head-main">
       <span class="author">Sitti Mardhiyyah</span>
-      <span class="title">Riya&#x27; menurut Al-Ghazali dalam Mau&#x27;izhah al-Mu&#x27;minin</span>
+      <span class="title">Membedah Riya’ dan Tingkatannya dalam Mau’izhah al-Mu’minin</span>
       <span class="meta">Sanah Salis · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-foto">Diterima bersyarat · sisa masukkan foto</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -991,18 +997,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 40">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">oke</p></div>
+      <div class="note"><p class="note-body">Cek kembali tulisanmu terhadap hasil koreksian editor berikut: judul tulisanmu perlu diseragamkan antara data dan naskah, redaksi hadis qudsi yang kamu kutip adalah campuran dua riwayat sehingga perlu kamu pilih satu riwayat dan sebut sumbernya, dan tulisanmu belum memiliki daftar pustaka. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
-    <a class="upload-btn" href="https://drive.google.com/drive/folders/1mpuL_kr5cLO_STolQxYM3FiqYNBBIv4f" target="_blank" rel="noopener noreferrer">Upload Foto</a>
   </div>
 </article>
-<article class="card" id="tulisan-41" data-group="kajian-kitab" data-search="wiladah mazkiyah keutamaan ubay bin ka&#x27;ab dan keistimewaan ayat kursi" data-status="foto">
+<article class="card" id="tulisan-41" data-group="kajian-kitab" data-search="wiladah mazkiyah keutamaan ubay bin ka&#x27;ab dan keistimewaan ayat kursi" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-41">
     <span class="num" aria-hidden="true">41</span>
     <span class="head-main">
       <span class="author">Wiladah Mazkiyah</span>
       <span class="title">Keutamaan Ubay bin Ka&#x27;ab dan Keistimewaan Ayat Kursi</span>
       <span class="meta">Sanah Salis · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-foto">Diterima bersyarat · sisa masukkan foto</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -1011,17 +1017,16 @@
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">oke, sertakan foto: <a href="https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr" target="_blank" rel="noopener noreferrer">https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr</a></p></div>
     </section>
-    <a class="upload-btn" href="https://drive.google.com/drive/folders/1QItoWnEzlsjLThAGIoi0QC2QblzF2PV0" target="_blank" rel="noopener noreferrer">Upload Foto</a>
   </div>
 </article>
-<article class="card" id="tulisan-42" data-group="kajian-kitab" data-search="qurratul ainiah munasabah surah al-muzzammil dan surah al-muddassir: dari memperbaiki diri menuju memperbaiki umat" data-status="foto">
+<article class="card" id="tulisan-42" data-group="kajian-kitab" data-search="qurratul ainiah munasabah surah al-muzzammil dan surah al-muddassir: dari memperbaiki diri menuju memperbaiki umat" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-42">
     <span class="num" aria-hidden="true">42</span>
     <span class="head-main">
       <span class="author">Qurratul Ainiah</span>
       <span class="title">Munasabah Surah Al-Muzzammil dan Surah Al-Muddassir: Dari Memperbaiki Diri Menuju Memperbaiki Umat</span>
       <span class="meta">Sanah Salis · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-foto">Diterima bersyarat · sisa masukkan foto</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -1030,17 +1035,16 @@
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">sertakan fotonya: <a href="https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr" target="_blank" rel="noopener noreferrer">https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr</a></p></div>
     </section>
-    <a class="upload-btn" href="https://drive.google.com/drive/folders/1Dtiye87psrfbd3zhGeEUjdYC9KIsuYLc" target="_blank" rel="noopener noreferrer">Upload Foto</a>
   </div>
 </article>
-<article class="card" id="tulisan-43" data-group="kajian-kitab" data-search="maghfirahtul hikmah klasifikasi air dan hukum perubahannya dalam fiqih islam" data-status="jawab">
+<article class="card" id="tulisan-43" data-group="kajian-kitab" data-search="maghfirahtul hikmah klasifikasi air dan hukum perubahannya dalam fiqih islam" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-43">
     <span class="num" aria-hidden="true">43</span>
     <span class="head-main">
       <span class="author">Maghfirahtul Hikmah</span>
       <span class="title">Klasifikasi Air dan Hukum Perubahannya dalam Fiqih Islam</span>
       <span class="meta">Sanah Salis · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -1048,8 +1052,8 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 43">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">oke, lampirkan foto ketika mengatakan ini: <a href="https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr" target="_blank" rel="noopener noreferrer">https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr</a></p></div>
+      <div class="note"><p class="note-body">Catatan Editor: Ada beberapa hal yang wajib kamu perbaiki sebelum tulisan ini diterbitkan. Pertama, judul kitab di kepala naskahmu tertulis rusak dan tidak dapat dikenali; perjelas dan betulkan nama kitab sumber pengajianmu. Kedua, beberapa redaksi Arab dalil tertukar dan mengubah makna: kata an-na&#x27;lain tertulis at-ta&#x27;lain, thuhuruhuma tertulis zhuhuruhuma, al-khubz tertulis al-khabar, dan Syaikhul Islam tertulis Syaikhul Ism; betulkan semuanya dari kitab sumbernya. Ketiga, susun daftar pustaka di akhir tulisan. Kabari lewat tombol Balas Catatan sesudah berkas perbaikan kamu kumpulkan.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=43&amp;entry.634068761=Maghfirahtul+Hikmah&amp;entry.899447176=Sanah+Salis&amp;entry.218540780=Klasifikasi+Air+dan+Hukum+Perubahannya+dalam+Fiqih+Islam" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
 <article class="card" id="tulisan-44" data-group="kajian-kitab" data-search="nadhifah ramadhani doa: amalan istimewa sebagai bentuk komunikasi antara hamba dan allah swt" data-status="publish">
@@ -1070,14 +1074,14 @@
     </section>
   </div>
 </article>
-<article class="card" id="tulisan-45" data-group="kajian-kitab" data-search="muhammad sabir kaidah al-ashlu bara&#x27;atu adz-dzimmah: hukum asal seseorang bebas dari tanggungan" data-status="jawab">
+<article class="card" id="tulisan-45" data-group="kajian-kitab" data-search="muhammad sabir kaidah al-ashlu bara&#x27;atu adz-dzimmah: hukum asal seseorang bebas dari tanggungan" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-45">
     <span class="num" aria-hidden="true">45</span>
     <span class="head-main">
       <span class="author">Muhammad Sabir</span>
       <span class="title">Kaidah Al-Ashlu Bara&#x27;atu adz-Dzimmah: Hukum Asal Seseorang Bebas dari Tanggungan</span>
       <span class="meta">Sanah Salis · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -1085,18 +1089,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 45">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">Dzul siapa ini?</p></div>
+      <div class="note"><p class="note-body">Cek kembali tulisanmu terhadap hasil koreksian editor berikut: tulisanmu belum memiliki daftar pustaka, dan takhrij hadis bayyinah perlu kamu tulis lebih cermat karena redaksi lengkapnya bersumber dari al-Baihaqi, bukan Sahih Muslim. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=45&amp;entry.634068761=Muhammad+Sabir&amp;entry.899447176=Sanah+Salis&amp;entry.218540780=Kaidah+Al-Ashlu+Bara%27atu+adz-Dzimmah%3A+Hukum+Asal+Seseorang+Bebas+dari+Tanggungan" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-46" data-group="kajian-kitab" data-search="balqis tabina adawiyah definisi puasa dan rukun-rukunnya dalam perspektif empat mazhab" data-status="jawab">
+<article class="card" id="tulisan-46" data-group="kajian-kitab" data-search="balqis tabina adawiyah definisi puasa dan rukun-rukunnya dalam perspektif empat mazhab" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-46">
     <span class="num" aria-hidden="true">46</span>
     <span class="head-main">
       <span class="author">Balqis Tabina Adawiyah</span>
       <span class="title">Definisi Puasa dan Rukun-Rukunnya dalam Perspektif Empat Mazhab</span>
       <span class="meta">Sanah Sani · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -1104,18 +1108,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 46">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">perkaya dengan footnote, selain rujukan utama. sertakan foto: <a href="https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr" target="_blank" rel="noopener noreferrer">https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr</a></p></div>
+      <div class="note"><p class="note-body">Cek kembali tulisanmu terhadap hasil koreksian editor berikut: tulisanmu belum memiliki daftar pustaka sama sekali padahal kamu mengutip definisi empat mazhab dan penjelasan Ibnu Manzur, dan judul kitab di kepala naskahmu perlu kamu pastikan ejaan dan keberadaannya. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=46&amp;entry.634068761=Balqis+Tabina+Adawiyah&amp;entry.899447176=Sanah+Sani&amp;entry.218540780=Definisi+Puasa+dan+Rukun-Rukunnya+dalam+Perspektif+Empat+Mazhab" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-47" data-group="kajian-kitab" data-search="ahsan abul khair keutamaan al-qur&#x27;an dan kisah ubay bin ka&#x27;ab r.a.: hikmah mulia di balik al-qur&#x27;an dan dzikir istiqamah" data-status="foto">
+<article class="card" id="tulisan-47" data-group="kajian-kitab" data-search="ahsan abul khair keutamaan al-qur&#x27;an dan kisah ubay bin ka&#x27;ab r.a.: hikmah mulia di balik al-qur&#x27;an dan dzikir istiqamah" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-47">
     <span class="num" aria-hidden="true">47</span>
     <span class="head-main">
       <span class="author">Ahsan Abul Khair</span>
       <span class="title">Keutamaan Al-Qur&#x27;an dan Kisah Ubay bin Ka&#x27;ab r.a.: Hikmah Mulia di Balik Al-Qur&#x27;an dan Dzikir Istiqamah</span>
       <span class="meta">Sanah Salis · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-foto">Diterima bersyarat · sisa masukkan foto</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -1124,17 +1128,16 @@
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">sertakan foto: <a href="https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr" target="_blank" rel="noopener noreferrer">https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr</a></p></div>
     </section>
-    <a class="upload-btn" href="https://drive.google.com/drive/folders/13ZsA636fbJbYWjR0UFPbBBksp_ZVAVqS" target="_blank" rel="noopener noreferrer">Upload Foto</a>
   </div>
 </article>
-<article class="card" id="tulisan-48" data-group="kajian-kitab" data-search="ahsan abul khair makna dosa, tobat, serta pelajaran dari kisah nabi adam a.s. dan siti hawa" data-status="foto">
+<article class="card" id="tulisan-48" data-group="kajian-kitab" data-search="ahsan abul khair makna dosa, tobat, serta pelajaran dari kisah nabi adam a.s. dan siti hawa" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-48">
     <span class="num" aria-hidden="true">48</span>
     <span class="head-main">
       <span class="author">Ahsan Abul Khair</span>
       <span class="title">Makna Dosa, Tobat, serta Pelajaran dari Kisah Nabi Adam a.s. dan Siti Hawa</span>
       <span class="meta">Sanah Salis · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-foto">Diterima bersyarat · sisa masukkan foto</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -1142,18 +1145,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 48">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">sertakan foto: <a href="https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr" target="_blank" rel="noopener noreferrer">https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr</a></p></div>
+      <div class="note"><p class="note-body">Cek kembali tulisanmu terhadap hasil koreksian editor berikut: tulisanmu belum memiliki daftar pustaka, hadis at-ta&#x27;ibu min adz-dzanbi belum kamu beri takhrij, dan perumpamaan orang bertobat seperti sabun pada pakaian kamu nisbatkan longgar kepada para ulama tanpa nama dan kitab. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
-    <a class="upload-btn" href="https://drive.google.com/drive/folders/1DBiIYe8xUwc4OMmd61TzjDSrOLFY3_CB" target="_blank" rel="noopener noreferrer">Upload Foto</a>
   </div>
 </article>
-<article class="card" id="tulisan-49" data-group="kajian-kitab" data-search="baso ihsan kitab al-lama&#x27;at: kumpulan cahaya, menemukan kekuatan iman melalui kisah nabi yunus dalam perspektif badiuzzaman said nursi" data-status="jawab">
+<article class="card" id="tulisan-49" data-group="kajian-kitab" data-search="baso ihsan kisah nabi yunus dan kekuatan tauhid: refleksi keimanan, pendidikan nafsu, dan persiapan menuju akhirat dalam perspektif said nursi" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-49">
     <span class="num" aria-hidden="true">49</span>
     <span class="head-main">
       <span class="author">Baso Ihsan</span>
-      <span class="title">Kitab Al-Lama&#x27;at: Kumpulan Cahaya, Menemukan Kekuatan Iman melalui Kisah Nabi Yunus dalam Perspektif Badiuzzaman Said Nursi</span>
+      <span class="title">KISAH NABI YUNUS DAN KEKUATAN TAUHID: REFLEKSI KEIMANAN, PENDIDIKAN NAFSU, DAN PERSIAPAN MENUJU AKHIRAT DALAM PERSPEKTIF SAID NURSI</span>
       <span class="meta">Sanah Salis · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -1161,18 +1164,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 49">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">sertakan foto: <a href="https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr" target="_blank" rel="noopener noreferrer">https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr</a></p></div>
+      <div class="note"><p class="note-body">Catatan Editor: Ada kekeliruan data yang wajib kamu luruskan sebelum tulisan ini diterbitkan. Di paragraf pertama kamu menulis Al-Lama&#x27;at terdiri atas 14 jilid; yang benar, Al-Lama&#x27;at adalah satu jilid, yaitu jilid ketiga Koleksi Risale-i Nur yang berisi 33 Lama&#x27;, sedangkan angka sekitar 14 adalah kisaran jumlah kitab dalam Kulliyat Risale-i Nur secara keseluruhan. Betulkan kalimat itu, beri sumber untuk anjuran membaca doa Nabi Yunus tiga kali sehari atau turunkan angka pastinya, dan susun daftar pustaka di akhir tulisan. Kabari lewat tombol Balas Catatan sesudah berkas perbaikan kamu kumpulkan.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=49&amp;entry.634068761=Baso+Ihsan&amp;entry.899447176=Sanah+Salis&amp;entry.218540780=Kitab+Al-Lama%27at%3A+Kumpulan+Cahaya%2C+Menemukan+Kekuatan+Iman+melalui+Kisah+Nabi+Yunus+dalam+Perspektif+Badiuzzaman+Said+Nursi" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-50" data-group="kajian-kitab" data-search="muhammad nur said mulianya sesuatu yang berkaitan dengan al-qur&#x27;an" data-status="jawab">
+<article class="card" id="tulisan-50" data-group="kajian-kitab" data-search="muhammad nur said mulianya sesuatu yang berkaitan dengan al-qur&#x27;an" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-50">
     <span class="num" aria-hidden="true">50</span>
     <span class="head-main">
       <span class="author">Muhammad Nur Said</span>
       <span class="title">Mulianya Sesuatu yang Berkaitan dengan Al-Qur&#x27;an</span>
       <span class="meta">Sanah Salis · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -1180,18 +1183,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 50">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">sertakan foto: <a href="https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr" target="_blank" rel="noopener noreferrer">https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr</a></p></div>
+      <div class="note"><p class="note-body">Cek kembali tulisanmu terhadap hasil koreksian editor berikut: ada kalimat abstrakmu yang rusak dan terpotong, dan sesudah daftar pustaka masih ada fragmen pengulangan bagian C yang terpotong di tengah kata dan harus dibuang. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=50&amp;entry.634068761=Muhammad+Nur+Said&amp;entry.899447176=Sanah+Salis&amp;entry.218540780=Mulianya+Sesuatu+yang+Berkaitan+dengan+Al-Qur%27an" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-51" data-group="kajian-kitab" data-search="muhammad ashabul kahfi antara sah dan diterima: buah nyata sebuah ibadah" data-status="jawab">
+<article class="card" id="tulisan-51" data-group="kajian-kitab" data-search="muhammad ashabul kahfi antara sah dan diterima: buah nyata sebuah ibadah" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-51">
     <span class="num" aria-hidden="true">51</span>
     <span class="head-main">
       <span class="author">Muhammad Ashabul Kahfi</span>
       <span class="title">Antara Sah dan Diterima: Buah Nyata Sebuah Ibadah</span>
       <span class="meta">Sanah Salis · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -1199,18 +1202,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 51">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">sertakan foto: <a href="https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr" target="_blank" rel="noopener noreferrer">https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr</a></p></div>
+      <div class="note"><p class="note-body">Cek kembali tulisanmu terhadap hasil koreksian editor berikut: entitas HTML &amp;quot; tampil mentah berulang kali di badan teksmu, tulisanmu belum memiliki daftar pustaka, dan keterangan sumber kutipan di kepala naskahmu perlu diperjelas siapa penuturnya dan dari mana khutbah itu dikutip. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=51&amp;entry.634068761=Muhammad+Ashabul+Kahfi&amp;entry.899447176=Sanah+Salis&amp;entry.218540780=Antara+Sah+dan+Diterima%3A+Buah+Nyata+Sebuah+Ibadah" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-52" data-group="kajian-kitab" data-search="imam qurthuby perbedaan pendapat ulama tentang hukum sholat berjama&#x27;ah" data-status="foto">
+<article class="card" id="tulisan-52" data-group="kajian-kitab" data-search="imam qurthuby perbedaan pendapat ulama tentang hukum sholat berjama&#x27;ah" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-52">
     <span class="num" aria-hidden="true">52</span>
     <span class="head-main">
       <span class="author">Imam Qurthuby</span>
       <span class="title">Perbedaan Pendapat Ulama tentang Hukum Sholat Berjama&#x27;ah</span>
       <span class="meta">Sanah Salis · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-foto">Diterima bersyarat · sisa masukkan foto</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -1219,17 +1222,16 @@
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">sertakan foto: <a href="https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr" target="_blank" rel="noopener noreferrer">https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr</a></p></div>
     </section>
-    <a class="upload-btn" href="https://drive.google.com/drive/folders/1T0RsCQKnOqRE12sEM3vO1ITRZcZQS-X0" target="_blank" rel="noopener noreferrer">Upload Foto</a>
   </div>
 </article>
-<article class="card" id="tulisan-53" data-group="kajian-kitab" data-search="ifdal maulana penjelasan tentang tercelanya riya" data-status="jawab">
+<article class="card" id="tulisan-53" data-group="kajian-kitab" data-search="ifdal maulana penjelasan tentang tercelanya riya" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-53">
     <span class="num" aria-hidden="true">53</span>
     <span class="head-main">
       <span class="author">Ifdal Maulana</span>
       <span class="title">Penjelasan tentang Tercelanya Riya</span>
       <span class="meta">Sanah Salis · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -1237,18 +1239,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 53">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">ammar siapa ini, sanah rabi&#x27; ? cari syekh saja dulu.</p></div>
+      <div class="note"><p class="note-body">Cek kembali tulisanmu terhadap hasil koreksian editor berikut: kelengkapan referensi tulisanmu: pastikan setiap hadis dan riwayat yang kamu kutip sudah dicantumkan sumber dan statusnya, dan susun atau lengkapi daftar pustaka di akhir tulisan. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=53&amp;entry.634068761=Ifdal+Maulana&amp;entry.899447176=Sanah+Salis&amp;entry.218540780=Penjelasan+tentang+Tercelanya+Riya" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-54" data-group="kajian-kitab" data-search="siti hajar membedah kitab al-lama&#x27;at: kajian tematik al-qur&#x27;an dalam pemikiran badiuzzaman said nursi" data-status="jawab">
+<article class="card" id="tulisan-54" data-group="kajian-kitab" data-search="siti hajar membedah kitab al-lama&#x27;at: kajian tematik al-qur&#x27;an dalam pemikiran badiuzzaman said nursi" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-54">
     <span class="num" aria-hidden="true">54</span>
     <span class="head-main">
       <span class="author">Siti Hajar</span>
       <span class="title">Membedah Kitab Al-Lama&#x27;at: Kajian Tematik Al-Qur&#x27;an dalam Pemikiran Badiuzzaman Said Nursi</span>
       <span class="meta">Sanah Salis · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -1256,18 +1258,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 54">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">sertakan foto: <a href="https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr" target="_blank" rel="noopener noreferrer">https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr</a></p></div>
+      <div class="note"><p class="note-body">Tulisan ini diterima dengan koreksi berat. Tulisan ini akan diterbitkan hanya kalau koreksi berat berikut kamu kerjakan semuanya. Pertama, data inti tentang tokoh dan kitab yang kamu kaji salah dan wajib diluruskan: tahun lahir Badiuzzaman Said Nursi adalah 1877, bukan 1887; kitab Al-Lama&#x27;at adalah satu kitab, yaitu buku ketiga dari Koleksi Risale-i Nur yang berisi 33 risalah, dan bahasa aslinya adalah bahasa Turki, bukan bahasa Arab; angka jumlah jilid yang bertentangan di dalam tulisanmu (12 jilid, 10 jilid, dan 14 jilid) adalah angka set Koleksi Risale-i Nur secara keseluruhan pada penerbitan tertentu, bukan jumlah jilid Al-Lama&#x27;at, jadi wajib kamu luruskan. Kedua, tambahkan daftar pustaka, karena tulisan ini tidak memuat satu pun referensi tertulis, padahal memuat klaim seperti jumlah bahasa terjemahan Risalah Nur dan riwayat masa muda Nursi yang semuanya tanpa sumber. Ketiga, tiga ungkapan Arab yang kamu nisbatkan langsung kepada Said Nursi wajib kamu beri sumber kitab dan halamannya, atau dihapus bila sumbernya tidak kamu temukan; riwayat Abu Ya&#x27;la wajib dilengkapi nomor dan statusnya; anjuran amalan membaca doa 33 kali sesudah salat Magrib wajib jelas sumbernya; dan tahun Hijriah di penutup tulisanmu salah, tertulis 1488 H, seharusnya 1448 H. Periksa kembali seluruh data tokoh dan kitab dari sumber yang sah, perbaiki, tambahkan daftar pustaka, lalu kumpulkan ulang berkas yang sudah diperbaiki. Kabari lewat tombol Balas Catatan sesudah berkas perbaikan kamu kumpulkan.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=54&amp;entry.634068761=Siti+Hajar&amp;entry.899447176=Sanah+Salis&amp;entry.218540780=Membedah+Kitab+Al-Lama%27at%3A+Kajian+Tematik+Al-Qur%27an+dalam+Pemikiran+Badiuzzaman+Said+Nursi" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-55" data-group="kajian-kitab" data-search="dirga wahyu fani kandungan mulia surah al-insyirah tentang penguatan hati dan perjuangan dakwah rasulullah saw" data-status="foto">
+<article class="card" id="tulisan-55" data-group="kajian-kitab" data-search="dirga wahyu fani kandungan mulia surah al-insyirah tentang penguatan hati dan perjuangan dakwah rasulullah saw" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-55">
     <span class="num" aria-hidden="true">55</span>
     <span class="head-main">
       <span class="author">Dirga Wahyu Fani</span>
       <span class="title">Kandungan Mulia Surah Al-Insyirah tentang Penguatan Hati dan Perjuangan Dakwah Rasulullah SAW</span>
       <span class="meta">Sanah Salis · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-foto">Diterima bersyarat · sisa masukkan foto</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -1276,17 +1278,16 @@
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">sertakan foto: <a href="https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr" target="_blank" rel="noopener noreferrer">https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr</a></p></div>
     </section>
-    <a class="upload-btn" href="https://drive.google.com/drive/folders/14MPSYNZPB5qS2MZE8uNIZ5k8shlIdIu0" target="_blank" rel="noopener noreferrer">Upload Foto</a>
   </div>
 </article>
-<article class="card" id="tulisan-56" data-group="tematik" data-search="m. faiz harmoni iman dan sains: menatap langit melalui lensa al-qur&#x27;an dan kosmologi modern" data-status="jawab">
+<article class="card" id="tulisan-56" data-group="tematik" data-search="m. faiz harmoni iman dan sains: menatap langit melalui lensa al-qur&#x27;an dan kosmologi modern" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-56">
     <span class="num" aria-hidden="true">56</span>
     <span class="head-main">
       <span class="author">M. Faiz</span>
       <span class="title">Harmoni Iman dan Sains: Menatap Langit Melalui Lensa Al-Qur&#x27;an dan Kosmologi Modern</span>
       <span class="meta">Sanah Ula · Kajian Tematik</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -1294,9 +1295,8 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 56">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">oke</p></div>
-      <div class="note"><p class="note-body">Tulisan ini dinyatakan oke oleh editor, tetapi pemeriksaan susunan menemukan kekurangan serius yang wajib kamu jawab sebelum tulisan ini diterbitkan. Sebagian isi tulisanmu, sekitar 300 kata dari 1.557 kata atau 19,3 persen, adalah blok tanya jawab fatwa Syekh Yusuf al-Qaradawi yang kamu salin tanpa tanda kutip dan tanpa menyebut bahwa itu fatwa beliau, sehingga terbaca seolah-olah tulisanmu sendiri. Fatwa itu wajib kamu perlakukan sebagai kutipan: beri tanda kutip, sebutkan nama Syekh Yusuf al-Qaradawi dan sumber fatwanya di tempat blok itu muncul, dan nyatakan bahwa isinya terjemahan fatwa. Pilihan lainnya, ringkas fatwa itu dengan kata-katamu sendiri dan tetap sebutkan sumbernya. Jawab pilihanmu lewat tombol Balas Catatan.</p></div>
+      <div class="note"><p class="note-body">Tulisan ini mendapat koreksi keras dari editor. Blok pembuka tulisanmu yang berbentuk Soal dan Jawab, sepanjang kurang lebih 300 kata, adalah terjemahan fatwa Syekh Yusuf al-Qaradawi dari kitab Fatwa-fatwa Kontemporer (Al-Fatawa al-Mu&#x27;ashirah) Jilid I, sub-bab Langit, halaman 64. Akan tetapi di dalam tulisanmu blok itu tampil tanpa tanda kutip dan tanpa nama beliau di tempat kemunculannya, sehingga terbaca sebagai tulisanmu sendiri. Ini wajib kamu perbaiki: tandai blok tersebut sebagai kutipan dengan sitasi lengkap di tempat kemunculannya, yaitu nama pengarang, judul kitab, jilid, dan halaman, dan lengkapi pula entri daftar pustakanya dengan tahun terbit, penerbit, jilid, dan halaman, karena entri yang ada sekarang tidak lengkap. Selain itu, hadis tentang hikmah sebagai barang hilang milik orang mukmin (HR. Tirmidzi no. 2687) wajib kamu beri keterangan statusnya, karena riwayat ini dinilai lemah. Perbaiki penanda kutipan dan kelengkapan sitasi dalam tulisanmu, lalu kumpulkan ulang berkas yang sudah diperbaiki. Kabari lewat tombol Balas Catatan sesudah berkas perbaikan kamu kumpulkan.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=56&amp;entry.634068761=M.+Faiz&amp;entry.899447176=Sanah+Ula&amp;entry.218540780=Harmoni+Iman+dan+Sains%3A+Menatap+Langit+Melalui+Lensa+Al-Qur%27an+dan+Kosmologi+Modern" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
 <article class="card" id="tulisan-57" data-group="tematik" data-search="nur halizah fikih medis: kemudahan dalam pelaksanaan ibadah bagi orang sakit" data-status="publish">
@@ -1317,14 +1317,14 @@
     </section>
   </div>
 </article>
-<article class="card" id="tulisan-58" data-group="tematik" data-search="umar keutamaan al-qur&#x27;an dalam kehidupan seorang muslim" data-status="jawab">
+<article class="card" id="tulisan-58" data-group="tematik" data-search="umar keutamaan al-qur&#x27;an dalam kehidupan seorang muslim" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-58">
     <span class="num" aria-hidden="true">58</span>
     <span class="head-main">
       <span class="author">Umar</span>
       <span class="title">KEUTAMAAN AL-QUR&#x27;AN DALAM KEHIDUPAN SEORANG MUSLIM</span>
       <span class="meta">Sanah Ula · Kajian Tematik</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -1332,19 +1332,17 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 58">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">oke</p></div>
-      <div class="note"><p class="note-body"><strong>Penjelasan detail status tulisan ini:</strong><br>Setelah diperiksa ulang secara detail, tulisan ini sebenarnya bersih dan tidak memiliki kekurangan isi yang wajib dijawab. Jumlah katanya sudah 1.020 kata, memiliki 7 rujukan yang sah, dan nomor hadis yang dikutip sudah cocok dengan sumbernya.<br>Status &ldquo;wajib jawab&rdquo; pada kartu ini hanya mengikuti skema putusan umum untuk tulisan yang belum terbit, bukan karena ada tuntutan perbaikan. Kamu cukup menekan tombol Balas Catatan untuk konfirmasi bahwa kamu sudah membaca catatan ini. Tulisan ini menjadi kandidat untuk menyusul diterbitkan.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=58&amp;entry.634068761=Umar&amp;entry.899447176=Sanah+Ula&amp;entry.218540780=KEUTAMAAN+AL-QUR%27AN+DALAM+KEHIDUPAN+SEORANG+MUSLIM" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-59" data-group="tematik" data-search="abdul aziz rajab ateisme: konsep, ragam pemahaman, dan tinjauan dalam perspektif filsafat agama dan islam" data-status="jawab">
+<article class="card" id="tulisan-59" data-group="tematik" data-search="abdul aziz rajab ateisme: konsep, ragam pemahaman, dan tinjauan dalam perspektif filsafat agama dan islam" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-59">
     <span class="num" aria-hidden="true">59</span>
     <span class="head-main">
       <span class="author">Abdul Aziz Rajab</span>
       <span class="title">Ateisme: Konsep, Ragam Pemahaman, dan Tinjauan dalam Perspektif Filsafat Agama dan Islam</span>
       <span class="meta">Sanah Ula · Kajian Tematik</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -1352,8 +1350,8 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 59">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">perjelas dan lebih terangkan masalah kaitannya ateis dengan filsafat agama dan islam, harus detail, penjelasanmu masih sangat sedikit</p></div>
+      <div class="note"><p class="note-body">Cek kembali tulisanmu terhadap hasil koreksian editor berikut: karya al-Ghazali, Ibn Rusyd, dan Ibn Sina yang kamu bahas di bagian perspektif Islam belum masuk daftar pustaka, ada kalimat yatim Tidak selalu. yang menggantung di awal sub-bab, dan rincian edisi beberapa rujukan primermu belum lengkap. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=59&amp;entry.634068761=Abdul+Aziz+Rajab&amp;entry.899447176=Sanah+Ula&amp;entry.218540780=Ateisme%3A+Konsep%2C+Ragam+Pemahaman%2C+dan+Tinjauan+dalam+Perspektif+Filsafat+Agama+dan+Islam" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
 <article class="card" id="tulisan-60" data-group="esai" data-search="muh. imam efendi hakikat rezeki, muhasabah diri, dan jalan menuju kedekatan dengan allah" data-status="jawab">
@@ -1371,18 +1369,19 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 60">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">dapat nasihat ini dari mana? perjelas sumbernya. tambah daftar pustaka atau daftr refrensi.</p></div>
+      <div class="note"><p class="note-body">Isi tulisanmu sebenarnya baik: ayat dan hadis yang kamu kutip tepat, misalnya QS. At-Talaq ayat 2–3, QS. Yunus ayat 62–63, dan hadis berkata baik atau diam dari Bukhari dan Muslim. Kritik editor justru pada penopang kisah-kisahnya. Hampir seluruh badan tulisanmu adalah kisah tokoh bernama, tetapi tidak satu pun kisah itu kamu beri sumber: Syekh Abu al-Hasan hanya kamu sebut dengan kunya-nya lalu kamu kisahkan berada di padang pasir tiga hari tanpa makanan sampai diberi makan orang Nasrani; Syekh Makinuddin al-Asmar kamu kisahkan menghitung kembali ucapannya dalam sehari dan hanya menemukan tiga atau empat perkataan; bahkan ada kisah seorang syekh berusia sekitar sembilan puluh tahun yang tidak kamu sebut namanya sama sekali. Tidak ada kitab yang kamu sebut, tidak ada sitasi, dan tidak ada daftar pustaka, sehingga semua kisah spesifik itu belum bisa dipertanggungjawabkan kebenarannya. Yang wajib kamu perbaiki sebelum tulisan ini diterbitkan: sebutkan sumber setiap kisah, dari kitab atau sumber apa kisah itu kamu ambil; luruskan identitas tokoh yang hanya dikenal dengan kunya-nya; lalu susun daftar pustaka dari sumber-sumber itu. Kabari lewat tombol Balas Catatan sesudah berkas perbaikan kamu kumpulkan.</p></div>
     </section>
     <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=60&amp;entry.634068761=Muh.+Imam+Efendi&amp;entry.899447176=Sanah+Sani&amp;entry.218540780=Hakikat+Rezeki%2C+Muhasabah+Diri%2C+dan+Jalan+Menuju+Kedekatan+dengan+Allah" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-61" data-group="esai" data-search="abdul khaliq al qadri (tanpa judul di naskah)" data-status="ditolak">
+<article class="card" id="tulisan-61" data-group="esai" data-search="abdul khaliq al qadri jangan tunggu menjadi baik untuk berbuat baik" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-61">
     <span class="num" aria-hidden="true">61</span>
     <span class="head-main">
       <span class="author">Abdul Khaliq Al Qadri</span>
-      <span class="title">(Tanpa judul di naskah)</span>
+      <span class="title">Jangan Tunggu Menjadi Baik untuk Berbuat Baik</span>
       <span class="meta">Sanah Salis · Esai dan Refleksi</span>
-      <span class="putusan putusan-ditolak">Ditolak</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -1393,14 +1392,14 @@
     </section>
   </div>
 </article>
-<article class="card" id="tulisan-62" data-group="kajian-kitab" data-search="muhajir pentingnya adab dalam menuntut ilmu menurut kitab ta&#x27;limul muta&#x27;allim" data-status="ditolak">
+<article class="card" id="tulisan-62" data-group="kajian-kitab" data-search="muhajir pentingnya adab dalam menuntut ilmu menurut kitab ta&#x27;limul muta&#x27;allim" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-62">
     <span class="num" aria-hidden="true">62</span>
     <span class="head-main">
       <span class="author">Muhajir</span>
       <span class="title">Pentingnya Adab dalam Menuntut Ilmu Menurut Kitab Ta&#x27;limul Muta&#x27;allim</span>
       <span class="meta">Sanah Ula · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-ditolak">Ditolak</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -1411,14 +1410,14 @@
     </section>
   </div>
 </article>
-<article class="card" id="tulisan-63" data-group="kajian-kitab" data-search="muh. mutawalliy asy-sya&#x27;rawiy perbedaan pendapat ulama terkait jumlah ayat dan wakaf pada surah al-fatihah" data-status="foto">
+<article class="card" id="tulisan-63" data-group="kajian-kitab" data-search="muh. mutawalliy asy-sya&#x27;rawiy perbedaan pendapat ulama terkait jumlah ayat dan wakaf pada surah al-fatihah" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-63">
     <span class="num" aria-hidden="true">63</span>
     <span class="head-main">
       <span class="author">Muh. Mutawalliy Asy-Sya&#x27;rawiy</span>
       <span class="title">Perbedaan Pendapat Ulama Terkait Jumlah Ayat dan Wakaf pada Surah Al-Fatihah</span>
       <span class="meta">Sanah Salis · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-foto">Diterima bersyarat · sisa masukkan foto</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -1426,18 +1425,18 @@
     <section class="komentar" aria-label="Catatan editor untuk tulisan 63">
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">oke, lampirkan foto d drive,</p></div>
+      <div class="note"><p class="note-body">Catatan Editor: Ada dua hal yang wajib kamu luruskan sebelum tulisan ini diterbitkan. Pertama, klasifikasi waqaf pada lafaz &#x27;alaihim yang kamu tulis sebagai waqaf tam; menurut Ibnu al-Anbari, waqaf di titik itu adalah waqaf hasan, karena lafaz ghairi masih terikat sebagai na&#x27;at atau badal dari alladzina, jadi betulkan istilahnya. Kedua, hadis tentang bacaan Nabi yang memotong-motong bacaan ayat demi ayat kamu sampaikan sebagai hadis shahih dengan kata selalu, tanpa takhrij; cantumkan perawi, kitab, dan nomornya, dan susun daftar pustaka atau rujukan kitab qira&#x27;at dan fikih untuk rincian pendapat yang kamu uraikan. Kabari lewat tombol Balas Catatan sesudah berkas perbaikan kamu kumpulkan.</p></div>
     </section>
-    <a class="upload-btn" href="https://drive.google.com/drive/folders/1l7mupMba8PlOWOyA1X5wLodwCcKn5LWd" target="_blank" rel="noopener noreferrer">Upload Foto</a>
   </div>
 </article>
-<article class="card" id="tulisan-64" data-group="kajian-kitab" data-search="chaidir ashar berguru atau tersesat" data-status="ditolak">
+<article class="card" id="tulisan-64" data-group="kajian-kitab" data-search="chaidir ashar hatiku sakit mendengarnya menghina nabiku, tapi yang menghina itu adalah ibuku" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-64">
     <span class="num" aria-hidden="true">64</span>
     <span class="head-main">
       <span class="author">Chaidir Ashar</span>
-      <span class="title">Berguru atau Tersesat</span>
+      <span class="title">Hatiku sakit mendengarnya menghina nabiku, tapi yang menghina itu adalah ibuku</span>
       <span class="meta">Sanah Sani · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-ditolak">Ditolak</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -1466,14 +1465,14 @@
     </section>
   </div>
 </article>
-<article class="card" id="tulisan-66" data-group="berita" data-search="fikran zahir rahmat dewan mahasantri asosiasi mahad aly wilayah sulawesi-kalimantan-ntb dan dewan mahasantri mahad aly ddi mangkoso sukses gelar bahtsul masail julid ii tingkat se-sulsebar" data-status="jawab">
+<article class="card" id="tulisan-66" data-group="berita" data-search="fikran zahir rahmat dewan mahasantri asosiasi mahad aly wilayah sulawesi-kalimantan-ntb dan dewan mahasantri mahad aly ddi mangkoso sukses gelar bahtsul masail julid ii tingkat se-sulsebar" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-66">
     <span class="num" aria-hidden="true">66</span>
     <span class="head-main">
       <span class="author">Fikran Zahir Rahmat</span>
       <span class="title">Dewan Mahasantri Asosiasi Mahad Aly Wilayah Sulawesi-Kalimantan-NTB dan Dewan Mahasantri Mahad Aly DDI Mangkoso Sukses Gelar Bahtsul Masail Julid II Tingkat Se-Sulsebar</span>
       <span class="meta">Sanah Rabi · Berita dan Siaran Pers</span>
-      <span class="putusan putusan-jawab">Diterima bersyarat · wajib jawab</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
@@ -1482,26 +1481,42 @@
       <h3>Catatan Editor</h3>
       <div class="note"><p class="note-body">sertakan foto</p></div>
     </section>
-    <a class="balas-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeSxGxov2IbcPf8PwcXHJJpGoNfDNEd9jvjxAS9dpivgzbJFg/viewform?entry.1125827198=66&amp;entry.634068761=Fikran+Zahir+Rahmat&amp;entry.899447176=Sanah+Rabi&amp;entry.218540780=Dewan+Mahasantri+Asosiasi+Mahad+Aly+Wilayah+Sulawesi-Kalimantan-NTB+dan+Dewan+Mahasantri+Mahad+Aly+DDI+Mangkoso+Sukses+Gelar+Bahtsul+Masail+Julid+II+Tingkat+Se-Sulsebar" target="_blank" rel="noopener noreferrer">Balas Catatan</a>
   </div>
 </article>
-<article class="card" id="tulisan-67" data-group="kajian-kitab" data-search="achmad munawwar sikap dalam memahami, mengamalkan, dan menyerukan agama islam" data-status="foto">
+<article class="card" id="tulisan-67" data-group="kajian-kitab" data-search="achmad munawwar sikap dalam memahami, mengamalkan, dan menyerukan agama islam" data-status="publish">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-67">
     <span class="num" aria-hidden="true">67</span>
     <span class="head-main">
       <span class="author">Achmad Munawwar</span>
       <span class="title">Sikap dalam Memahami, Mengamalkan, dan Menyerukan Agama Islam</span>
       <span class="meta">Sanah Sani · Kajian Kitab dan Pengajian</span>
-      <span class="putusan putusan-foto">Diterima bersyarat · sisa masukkan foto</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
     </span>
     <span class="chev" aria-hidden="true">&#9662;</span>
   </button>
   <div class="card-body" id="isi-67" hidden>
     <section class="komentar" aria-label="Catatan editor untuk tulisan 67">
       <h3>Catatan Editor</h3>
-      <div class="note"><p class="note-body">Tulisan ini diterima bersyarat. Karena bentuknya pengajian, syaratnya satu: masukkan foto pemateri pengajian ke folder foto berikut: <a href="https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr" target="_blank" rel="noopener noreferrer">https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr</a>. Sesudah foto masuk, tulisan siap diterbitkan.</p></div>
+      <div class="note"><p class="note-body">Tulisan ini diterima bersyarat. Karena bentuknya pengajian, syaratnya satu: masukkan foto pemateri pengajian ke folder foto berikut: <a href="https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr." target="_blank" rel="noopener noreferrer">https://drive.google.com/drive/folders/1fLMusAzMNo5m3mZvn2fF-WP35OIc_gTr.</a> Sesudah foto masuk, tulisan siap diterbitkan. Cek kembali tulisanmu terhadap hasil koreksian editor berikut: tulisanmu belum memiliki daftar pustaka, belum ada penanda mana uraian yang merupakan isi pemateri dan mana pengembanganmu sendiri, dan hadis yassiru wa la tu&#x27;assiru belum kamu beri takhrij. Betulkan yang masih kurang, lalu kabari lewat tombol Balas Catatan sesudah kamu memeriksanya.</p></div>
     </section>
-    <a class="upload-btn" href="https://drive.google.com/drive/folders/1nTcxuwsL5EcPyID1Xuc-dNLFw59sKcjF" target="_blank" rel="noopener noreferrer">Upload Foto</a>
+  </div>
+</article>
+<article class="card" id="tulisan-68" data-group="tematik" data-search="fitrah betulkah tidak banyak ayat tentang zakat dalam al-qur&#x27;an?" data-status="publish">
+  <button class="card-head" type="button" aria-expanded="false" aria-controls="isi-68">
+    <span class="num" aria-hidden="true">68</span>
+    <span class="head-main">
+      <span class="author">Fitrah</span>
+      <span class="title">Betulkah Tidak Banyak Ayat tentang Zakat dalam Al-Qur&#x27;an?</span>
+      <span class="meta">Sanah Rabi · Kajian Tematik</span>
+      <span class="putusan putusan-publish">Sudah publish</span>
+    </span>
+    <span class="chev" aria-hidden="true">&#9662;</span>
+  </button>
+  <div class="card-body" id="isi-68" hidden>
+    <section class="inti" aria-label="Inti tulisan 68">
+      <h3>Inti Tulisan</h3>
+      <p class="inti-body">Tulisan ini membantah anggapan bahwa ayat tentang zakat sedikit. Dengan menghitung ayat yang membicarakan zakat sebagai ibadah maliyah memakai lema zakah pada Quranic Arabic Corpus, penulis menemukan 30 ayat: 26 ayat yang menyebut zakat beriringan dengan shalat (dari al-Baqarah 43 sampai al-Bayyinah 98:5), 1 ayat yang zakatnya terpisah rangkaian dari shalatnya (al-Mu&#x27;minun 23:4), dan 3 ayat zakat tersendiri tanpa shalat (al-A&#x27;raf 7:156, ar-Rum 30:39, Fussilat 41:7). Dua lafaz zakah yang bermakna kesucian (al-Kahf 18:81 dan Maryam 19:13) secara sadar dikeluarkan dari hitungan karena konteksnya bukan zakat maliyah. Simpulan penulis: jumlah ayat zakat jauh melampaui ayat ibadah lain menurut hitungannya, jadi pantaskah dikatakan tidak banyak?</p>
+    </section>
   </div>
 </article>
       </main>
